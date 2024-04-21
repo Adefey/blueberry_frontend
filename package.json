@@ -1,0 +1,26 @@
+{
+  "name": "blueberry_frontend",
+  "version": "1.0.0",
+  "description": "Blueberry is an amazing cookbook which tells you how to cook!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adefey/blueberry_frontend.git"
+  },
+  "author": "adefe",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Adefey/blueberry_frontend/issues"
+  },
+  "homepage": "https://github.com/Adefey/blueberry_frontend#readme",
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "handlebars-loader": "^1.7.3",
+    "path": "^0.12.7"
+  }
+}
