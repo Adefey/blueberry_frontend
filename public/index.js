@@ -1,42 +1,23 @@
-import { hi } from "./util.js";
+import { recipeAll, recipeId } from "./api.js";
 
 const root = document.getElementById("root");
 
-const myTemplate = require("../templates/dogs.hbs");
+const recipeListTmlp = require("../templates/recipe-list.hbs");
+const recipeTmpl = require("../templates/recipe.hbs");
 
-hi();
+function renderRecipeList() {
+  root.innerHTML = "";
+  const data = recipeAll(1, 2, "3");
+  if (root) {
+    root.innerHTML = recipeListTmlp(data);
+  }
+  const recipeListElements = root.querySelectorAll(".recipe-list-element");
+  recipeListElements.forEach((element) => {
+    element.addEventListener("click", (event) => {
+      const id = element.getAttribute("data-id");
+      root.innerHTML = id;
+    });
+  });
+}
 
-const pets = {
-  pets: [
-    {
-      name: "A",
-      species: "B",
-      favFoods: "C",
-      birthYear: 1,
-      photo: "https://adefe.xyz/avatar.png",
-    },
-    {
-      name: "A",
-      species: "B",
-      favFoods: "C",
-      birthYear: 1,
-      photo: "https://adefe.xyz/avatar.png",
-    },
-    {
-      name: "A",
-      species: "B",
-      favFoods: "C",
-      birthYear: 1,
-      photo: "https://adefe.xyz/avatar.png",
-    },
-    {
-      name: "A",
-      species: "B",
-      favFoods: "C",
-      birthYear: 1,
-      photo: "https://adefe.xyz/avatar.png",
-    },
-  ],
-};
-
-root.innerHTML = myTemplate(pets);
+renderRecipeList();
