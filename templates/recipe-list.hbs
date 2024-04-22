@@ -1,12 +1,17 @@
-<input type="text" class="searchbar" placeholder="Search recipes.." />
-{{#each recipes}}
-  <div class="recipe-list-element border" data-id="{{id}}">
-    <div class="recipe-image">
-      <img src="{{image_url}}" alt="{{caption}}" />
+<div class="search-container">
+  <input type="text" class="searchbar" placeholder="Search recipes.." />
+  <button type="button" class="button-search">Search</button>
+</div>
+<div class="recipe-container">
+  {{#each recipes}}
+    <div class="recipe-list-element border" data-id="{{id}}">
+      <div class="recipe-image">
+        <img src="{{image_url}}" alt="{{caption}}" />
+      </div>
+      <div class="caption-description">
+        <div class="caption"><b>{{caption}}</b></div>
+        <div class="description">{{description}}</div>
+      </div>
     </div>
-    <div class="caption-description">
-      <div class="caption"><b>{{caption}}</b></div>
-      <div class="description">{{description}}</div>
-    </div>
-  </div>
-{{/each}}
+  {{/each}}
+</div>
