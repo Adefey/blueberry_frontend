@@ -47,8 +47,8 @@ footer {
 .recipe-list-element {
   display: flex;
   flex-direction: row;
-  margin: 10px;
-  width: 45%;
+  margin: 15px;
+  width: 48%;
   height: 10rem;
 }
 
@@ -112,6 +112,8 @@ img {
 }
 
 .recipe {
+  margin: auto;
+  padding: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
