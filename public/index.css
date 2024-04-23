@@ -116,7 +116,7 @@ img {
   flex-direction: column;
   justify-content: space-between;
   margin: 10px;
-  height: 30rem;
+  height: 32rem;
   width: 85%;
 }
 
@@ -124,7 +124,7 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin: 10px 10px 50px 10px;
+  margin: 10px;
 }
 
 button {
