@@ -9,6 +9,10 @@ async function recipeAll(count = 0, offset = 0, search_query = null) {
 
   return fetch(backendUrl + handleUrl, {
     method: "get",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
   }).then((response) => {
     return response.json().then((responseJson) => {
       console.log("Data received", responseJson);
@@ -23,6 +27,10 @@ function recipeId(id) {
 
   return fetch(backendUrl + handleUrl, {
     method: "get",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
   }).then((response) => {
     return response.json().then((responseJson) => {
       console.log("Data received", responseJson);

@@ -1225,7 +1225,11 @@
         const o = "/recipe/all";
         return (
           console.log(o, t, r, n),
-          fetch(e + o, { method: "get" }).then((e) =>
+          fetch(e + o, {
+            method: "get",
+            mode: "cors",
+            headers: { "Content-Type": "application/json" },
+          }).then((e) =>
             e.json().then((e) => (console.log("Data received", e), e)),
           )
         );
@@ -1244,7 +1248,11 @@
                   const r = `/recipe/${t}`;
                   return (
                     console.log(r, t),
-                    fetch(e + r, { method: "get" }).then((e) =>
+                    fetch(e + r, {
+                      method: "get",
+                      mode: "cors",
+                      headers: { "Content-Type": "application/json" },
+                    }).then((e) =>
                       e
                         .json()
                         .then((e) => (console.log("Data received", e), e)),
