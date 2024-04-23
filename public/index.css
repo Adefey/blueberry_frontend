@@ -48,7 +48,7 @@ footer {
 .recipe-list-element {
   display: flex;
   flex-direction: row;
-  margin: auto;
+  margin: 15px;
   width: 45%;
   height: 10rem;
 }
