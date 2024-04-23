@@ -20,7 +20,7 @@ footer {
   flex-direction: column;
   justify-content: space-around;
   background-color: #eeeeee;
-  position:fixed;
+  position:absolute;
   bottom:0;
 }
 
