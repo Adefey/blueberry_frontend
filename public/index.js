@@ -29,6 +29,7 @@ function renderRecipeList() {
         root.innerHTML = "";
         const id = element.getAttribute("data-id");
         const recipeData = recipeId(id).then((recipeData) => {
+          console.log("Data received by main JS", recipeData);
           currentStep = 0;
           if (recipeData.length != 0) {
             renderStep(recipeData);
