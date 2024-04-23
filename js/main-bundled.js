@@ -1259,7 +1259,8 @@
                     )
                   );
                 })(r.getAttribute("data-id")).then((e) => {
-                  (a = 0),
+                  console.log("Data received by main JS", e),
+                    (a = 0),
                     0 != e.length
                       ? i(e)
                       : alert("Sorry, this recipe is not ready");
