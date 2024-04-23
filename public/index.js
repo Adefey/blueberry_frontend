@@ -8,29 +8,35 @@ const recipeTmpl = require("../templates/recipe.hbs");
 let currentStep = 0;
 
 function renderRecipeList() {
-  let recipeListData = recipeAll(10, 0, "");
-
-  root.innerHTML = recipeListTmlp(recipeListData);
-
-  if (root) {
+  recipeAll(10, 0, "").then((recipeListData) => {
+    console.log("Data received by main JS", recipeListData);
     root.innerHTML = recipeListTmlp(recipeListData);
-  }
 
-  const searchBar = root.querySelector(".searchbar");
+    if (root) {
+      root.innerHTML = recipeListTmlp(recipeListData);
+    }
 
-  const searchButton = root.querySelector(".button-search");
-  searchButton.addEventListener("click", () => {
-    renderRecipeList();
-  });
+    const searchBar = root.querySelector(".searchbar");
 
-  const recipeListElements = root.querySelectorAll(".recipe-list-element");
-  recipeListElements.forEach((element) => {
-    element.addEventListener("click", (event) => {
-      root.innerHTML = "";
-      const id = element.getAttribute("data-id");
-      const recipeData = recipeId(id);
-      currentStep = 0;
-      renderStep(recipeData);
+    const searchButton = root.querySelector(".button-search");
+    searchButton.addEventListener("click", () => {
+      renderRecipeList();
+    });
+
+    const recipeListElements = root.querySelectorAll(".recipe-list-element");
+    recipeListElements.forEach((element) => {
+      element.addEventListener("click", (event) => {
+        root.innerHTML = "";
+        const id = element.getAttribute("data-id");
+        const recipeData = recipeId(id).then((recipeData) => {
+          currentStep = 0;
+          if (recipeData.length != 0) {
+            renderStep(recipeData);
+          } else {
+            alert("Sorry, this recipe is not ready");
+          }
+        });
+      });
     });
   });
 }

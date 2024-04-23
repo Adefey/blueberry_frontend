@@ -5,8 +5,8 @@
         e.exports = (n.default || n).template({
           1: function (e, t, r, n, o) {
             var a,
-              i = null != t ? t : e.nullContext || {},
-              l = e.hooks.helperMissing,
+              l = null != t ? t : e.nullContext || {},
+              i = e.hooks.helperMissing,
               s = "function",
               u = e.escapeExpression,
               c =
@@ -20,8 +20,8 @@
                 typeof (a =
                   null != (a = c(r, "id") || (null != t ? c(t, "id") : t))
                     ? a
-                    : l) === s
-                  ? a.call(i, {
+                    : i) === s
+                  ? a.call(l, {
                       name: "id",
                       hash: {},
                       data: o,
@@ -38,8 +38,8 @@
                   null !=
                   (a = c(r, "image_url") || (null != t ? c(t, "image_url") : t))
                     ? a
-                    : l) === s
-                  ? a.call(i, {
+                    : i) === s
+                  ? a.call(l, {
                       name: "image_url",
                       hash: {},
                       data: o,
@@ -56,8 +56,8 @@
                   null !=
                   (a = c(r, "caption") || (null != t ? c(t, "caption") : t))
                     ? a
-                    : l) === s
-                  ? a.call(i, {
+                    : i) === s
+                  ? a.call(l, {
                       name: "caption",
                       hash: {},
                       data: o,
@@ -74,8 +74,8 @@
                   null !=
                   (a = c(r, "caption") || (null != t ? c(t, "caption") : t))
                     ? a
-                    : l) === s
-                  ? a.call(i, {
+                    : i) === s
+                  ? a.call(l, {
                       name: "caption",
                       hash: {},
                       data: o,
@@ -94,8 +94,8 @@
                     c(r, "description") ||
                     (null != t ? c(t, "description") : t))
                     ? a
-                    : l) === s
-                  ? a.call(i, {
+                    : i) === s
+                  ? a.call(l, {
                       name: "description",
                       hash: {},
                       data: o,
@@ -112,7 +112,7 @@
           compiler: [8, ">= 4.3.0"],
           main: function (e, t, r, n, o) {
             var a,
-              i =
+              l =
                 e.lookupProperty ||
                 function (e, t) {
                   if (Object.prototype.hasOwnProperty.call(e, t)) return e[t];
@@ -120,9 +120,9 @@
             return (
               '<div class="search-container">\n  <input type="text" class="searchbar" placeholder="Search recipes.." />\n  <button type="button" class="button-search">Search</button>\n</div>\n<div class="recipe-container">\n' +
               (null !=
-              (a = i(r, "each").call(
+              (a = l(r, "each").call(
                 null != t ? t : e.nullContext || {},
-                null != t ? i(t, "recipes") : t,
+                null != t ? l(t, "recipes") : t,
                 {
                   name: "each",
                   hash: {},
@@ -149,8 +149,8 @@
           compiler: [8, ">= 4.3.0"],
           main: function (e, t, r, n, o) {
             var a,
-              i = null != t ? t : e.nullContext || {},
-              l = e.hooks.helperMissing,
+              l = null != t ? t : e.nullContext || {},
+              i = e.hooks.helperMissing,
               s = "function",
               u = e.escapeExpression,
               c =
@@ -165,8 +165,8 @@
                   null !=
                   (a = c(r, "image_url") || (null != t ? c(t, "image_url") : t))
                     ? a
-                    : l) === s
-                  ? a.call(i, {
+                    : i) === s
+                  ? a.call(l, {
                       name: "image_url",
                       hash: {},
                       data: o,
@@ -183,8 +183,8 @@
                   null !=
                   (a = c(r, "caption") || (null != t ? c(t, "caption") : t))
                     ? a
-                    : l) === s
-                  ? a.call(i, {
+                    : i) === s
+                  ? a.call(l, {
                       name: "caption",
                       hash: {},
                       data: o,
@@ -201,8 +201,8 @@
                   null !=
                   (a = c(r, "caption") || (null != t ? c(t, "caption") : t))
                     ? a
-                    : l) === s
-                  ? a.call(i, {
+                    : i) === s
+                  ? a.call(l, {
                       name: "caption",
                       hash: {},
                       data: o,
@@ -221,8 +221,8 @@
                     c(r, "description") ||
                     (null != t ? c(t, "description") : t))
                     ? a
-                    : l) === s
-                  ? a.call(i, {
+                    : i) === s
+                  ? a.call(l, {
                       name: "description",
                       hash: {},
                       data: o,
@@ -239,8 +239,8 @@
                   null !=
                   (a = c(r, "duration") || (null != t ? c(t, "duration") : t))
                     ? a
-                    : l) === s
-                  ? a.call(i, {
+                    : i) === s
+                  ? a.call(l, {
                       name: "duration",
                       hash: {},
                       data: o,
@@ -272,17 +272,17 @@
         }
         t.__esModule = !0;
         var a = o(r(871)),
-          i = n(r(613)),
-          l = n(r(769)),
+          l = n(r(613)),
+          i = n(r(769)),
           s = o(r(849)),
           u = o(r(624)),
           c = n(r(148));
-        function p() {
+        function d() {
           var e = new a.HandlebarsEnvironment();
           return (
             s.extend(e, a),
-            (e.SafeString = i.default),
-            (e.Exception = l.default),
+            (e.SafeString = l.default),
+            (e.Exception = i.default),
             (e.Utils = s),
             (e.escapeExpression = s.escapeExpression),
             (e.VM = u),
@@ -292,11 +292,11 @@
             e
           );
         }
-        var d = p();
-        (d.create = p),
-          c.default(d),
-          (d.default = d),
-          (t.default = d),
+        var p = d();
+        (p.create = d),
+          c.default(p),
+          (p.default = p),
+          (t.default = p),
           (e.exports = t.default);
       },
       871: (e, t, r) => {
@@ -304,11 +304,11 @@
         function n(e) {
           return e && e.__esModule ? e : { default: e };
         }
-        (t.__esModule = !0), (t.HandlebarsEnvironment = p);
+        (t.__esModule = !0), (t.HandlebarsEnvironment = d);
         var o = r(849),
           a = n(r(769)),
-          i = r(277),
-          l = r(940),
+          l = r(277),
+          i = r(940),
           s = n(r(566)),
           u = r(865);
         (t.VERSION = "4.7.8"),
@@ -325,15 +325,15 @@
             8: ">= 4.3.0",
           });
         var c = "[object Object]";
-        function p(e, t, r) {
+        function d(e, t, r) {
           (this.helpers = e || {}),
             (this.partials = t || {}),
             (this.decorators = r || {}),
-            i.registerDefaultHelpers(this),
-            l.registerDefaultDecorators(this);
+            l.registerDefaultHelpers(this),
+            i.registerDefaultDecorators(this);
         }
-        p.prototype = {
-          constructor: p,
+        d.prototype = {
+          constructor: d,
           logger: s.default,
           log: s.default.log,
           registerHelper: function (e, t) {
@@ -377,8 +377,8 @@
             u.resetLoggedProperties();
           },
         };
-        var d = s.default.log;
-        (t.log = d), (t.createFrame = o.createFrame), (t.logger = s.default);
+        var p = s.default.log;
+        (t.log = p), (t.createFrame = o.createFrame), (t.logger = s.default);
       },
       940: (e, t, r) => {
         "use strict";
@@ -400,10 +400,10 @@
               t.partials ||
                 ((t.partials = {}),
                 (a = function (o, a) {
-                  var i = r.partials;
-                  r.partials = n.extend({}, i, t.partials);
-                  var l = e(o, a);
-                  return (r.partials = i), l;
+                  var l = r.partials;
+                  r.partials = n.extend({}, l, t.partials);
+                  var i = e(o, a);
+                  return (r.partials = l), i;
                 })),
               (t.partials[o.args[0]] = o.fn),
               a
@@ -428,15 +428,15 @@
         function n(e, t) {
           var o = t && t.loc,
             a = void 0,
-            i = void 0,
             l = void 0,
+            i = void 0,
             s = void 0;
           o &&
             ((a = o.start.line),
-            (i = o.end.line),
-            (l = o.start.column),
+            (l = o.end.line),
+            (i = o.start.column),
             (s = o.end.column),
-            (e += " - " + a + ":" + l));
+            (e += " - " + a + ":" + i));
           for (
             var u = Error.prototype.constructor.call(this, e), c = 0;
             c < r.length;
@@ -447,17 +447,17 @@
           try {
             o &&
               ((this.lineNumber = a),
-              (this.endLineNumber = i),
+              (this.endLineNumber = l),
               Object.defineProperty
                 ? (Object.defineProperty(this, "column", {
-                    value: l,
+                    value: i,
                     enumerable: !0,
                   }),
                   Object.defineProperty(this, "endColumn", {
                     value: s,
                     enumerable: !0,
                   }))
-                : ((this.column = l), (this.endColumn = s)));
+                : ((this.column = i), (this.endColumn = s)));
           } catch (e) {}
         }
         (n.prototype = new Error()), (t.default = n), (e.exports = t.default);
@@ -471,8 +471,8 @@
           (t.registerDefaultHelpers = function (e) {
             o.default(e),
               a.default(e),
-              i.default(e),
               l.default(e),
+              i.default(e),
               s.default(e),
               u.default(e),
               c.default(e);
@@ -483,8 +483,8 @@
           });
         var o = n(r(97)),
           a = n(r(785)),
-          i = n(r(353)),
-          l = n(r(355)),
+          l = n(r(353)),
+          i = n(r(355)),
           s = n(r(300)),
           u = n(r(466)),
           c = n(r(908));
@@ -504,9 +504,9 @@
                 ? (r.ids && (r.ids = [r.name]), e.helpers.each(t, r))
                 : o(this);
             if (r.data && r.ids) {
-              var i = n.createFrame(r.data);
-              (i.contextPath = n.appendContextPath(r.data.contextPath, r.name)),
-                (r = { data: i });
+              var l = n.createFrame(r.data);
+              (l.contextPath = n.appendContextPath(r.data.contextPath, r.name)),
+                (r = { data: l });
             }
             return a(t, r);
           });
@@ -524,12 +524,12 @@
             if (!t) throw new a.default("Must pass iterator to #each");
             var r,
               n = t.fn,
-              i = t.inverse,
-              l = 0,
+              l = t.inverse,
+              i = 0,
               s = "",
               u = void 0,
               c = void 0;
-            function p(t, r, a) {
+            function d(t, r, a) {
               u &&
                 ((u.key = t),
                 (u.index = r),
@@ -550,24 +550,24 @@
               e && "object" == typeof e)
             )
               if (o.isArray(e))
-                for (var d = e.length; l < d; l++)
-                  l in e && p(l, l, l === e.length - 1);
+                for (var p = e.length; i < p; i++)
+                  i in e && d(i, i, i === e.length - 1);
               else if ("function" == typeof Symbol && e[Symbol.iterator]) {
                 for (
-                  var f = [], h = e[Symbol.iterator](), m = h.next();
-                  !m.done;
-                  m = h.next()
+                  var f = [], h = e[Symbol.iterator](), v = h.next();
+                  !v.done;
+                  v = h.next()
                 )
-                  f.push(m.value);
-                for (d = (e = f).length; l < d; l++)
-                  p(l, l, l === e.length - 1);
+                  f.push(v.value);
+                for (p = (e = f).length; i < p; i++)
+                  d(i, i, i === e.length - 1);
               } else
                 (r = void 0),
                   Object.keys(e).forEach(function (e) {
-                    void 0 !== r && p(r, l - 1), (r = e), l++;
+                    void 0 !== r && d(r, i - 1), (r = e), i++;
                   }),
-                  void 0 !== r && p(r, l - 1, !0);
-            return 0 === l && (s = i(this)), s;
+                  void 0 !== r && d(r, i - 1, !0);
+            return 0 === i && (s = l(this)), s;
           });
         }),
           (e.exports = t.default);
@@ -723,8 +723,8 @@
                 : void 0 !== e.defaultValue
                   ? e.defaultValue
                   : ((function (e) {
-                      !0 !== i[e] &&
-                        ((i[e] = !0),
+                      !0 !== l[e] &&
+                        ((l[e] = !0),
                         a.default.log(
                           "error",
                           'Handlebars: Access has been denied to resolve the property "' +
@@ -736,14 +736,14 @@
             })("function" == typeof e ? t.methods : t.properties, r);
           }),
           (t.resetLoggedProperties = function () {
-            Object.keys(i).forEach(function (e) {
-              delete i[e];
+            Object.keys(l).forEach(function (e) {
+              delete l[e];
             });
           });
         var n,
           o = r(726),
           a = (n = r(566)) && n.__esModule ? n : { default: n },
-          i = Object.create(null);
+          l = Object.create(null);
       },
       614: (e, t) => {
         "use strict";
@@ -818,16 +818,16 @@
         (t.__esModule = !0),
           (t.checkRevision = function (e) {
             var t = (e && e[0]) || 1,
-              r = i.COMPILER_REVISION;
+              r = l.COMPILER_REVISION;
             if (
               !(
-                t >= i.LAST_COMPATIBLE_COMPILER_REVISION &&
-                t <= i.COMPILER_REVISION
+                t >= l.LAST_COMPATIBLE_COMPILER_REVISION &&
+                t <= l.COMPILER_REVISION
               )
             ) {
-              if (t < i.LAST_COMPATIBLE_COMPILER_REVISION) {
-                var n = i.REVISION_CHANGES[r],
-                  o = i.REVISION_CHANGES[t];
+              if (t < l.LAST_COMPATIBLE_COMPILER_REVISION) {
+                var n = l.REVISION_CHANGES[r],
+                  o = l.REVISION_CHANGES[t];
                 throw new a.default(
                   "Template was precompiled with an older version of Handlebars than the current runtime. Please update your precompiler to a newer version (" +
                     n +
@@ -874,40 +874,40 @@
                   return "function" == typeof e ? e.call(t) : e;
                 },
                 escapeExpression: o.escapeExpression,
-                invokePartial: function (r, n, i) {
-                  i.hash &&
-                    ((n = o.extend({}, n, i.hash)), i.ids && (i.ids[0] = !0)),
-                    (r = t.VM.resolvePartial.call(this, r, n, i));
-                  var l = o.extend({}, i, {
+                invokePartial: function (r, n, l) {
+                  l.hash &&
+                    ((n = o.extend({}, n, l.hash)), l.ids && (l.ids[0] = !0)),
+                    (r = t.VM.resolvePartial.call(this, r, n, l));
+                  var i = o.extend({}, l, {
                       hooks: this.hooks,
                       protoAccessControl: this.protoAccessControl,
                     }),
-                    s = t.VM.invokePartial.call(this, r, n, l);
+                    s = t.VM.invokePartial.call(this, r, n, i);
                   if (
                     (null == s &&
                       t.compile &&
-                      ((i.partials[i.name] = t.compile(
+                      ((l.partials[l.name] = t.compile(
                         r,
                         e.compilerOptions,
                         t,
                       )),
-                      (s = i.partials[i.name](n, l))),
+                      (s = l.partials[l.name](n, i))),
                     null != s)
                   ) {
-                    if (i.indent) {
+                    if (l.indent) {
                       for (
-                        var u = s.split("\n"), c = 0, p = u.length;
-                        c < p && (u[c] || c + 1 !== p);
+                        var u = s.split("\n"), c = 0, d = u.length;
+                        c < d && (u[c] || c + 1 !== d);
                         c++
                       )
-                        u[c] = i.indent + u[c];
+                        u[c] = l.indent + u[c];
                       s = u.join("\n");
                     }
                     return s;
                   }
                   throw new a.default(
                     "The partial " +
-                      i.name +
+                      l.name +
                       " could not be compiled when running in runtime-only mode",
                   );
                 },
@@ -918,11 +918,11 @@
                 programs: [],
                 program: function (e, t, r, n, o) {
                   var a = this.programs[e],
-                    i = this.fn(e);
+                    l = this.fn(e);
                   return (
                     t || o || n || r
-                      ? (a = c(this, e, i, t, r, n, o))
-                      : a || (a = this.programs[e] = c(this, e, i)),
+                      ? (a = c(this, e, l, t, r, n, o))
+                      : a || (a = this.programs[e] = c(this, e, l)),
                     a
                   );
                 },
@@ -938,26 +938,26 @@
                 noop: t.VM.noop,
                 compilerInfo: e.compiler,
               };
-            function p(t) {
+            function d(t) {
               var r =
                   arguments.length <= 1 || void 0 === arguments[1]
                     ? {}
                     : arguments[1],
                 o = r.data;
-              p._setup(r),
+              d._setup(r),
                 !r.partial &&
                   e.useData &&
                   (o = (function (e, t) {
                     return (
                       (t && "root" in t) ||
-                        ((t = t ? i.createFrame(t) : {}).root = e),
+                        ((t = t ? l.createFrame(t) : {}).root = e),
                       t
                     );
                   })(t, o));
               var a = void 0,
-                l = e.useBlockParams ? [] : void 0;
+                i = e.useBlockParams ? [] : void 0;
               function s(t) {
-                return "" + e.main(n, t, n.helpers, n.partials, o, l, a);
+                return "" + e.main(n, t, n.helpers, n.partials, o, i, a);
               }
               return (
                 e.useDepths &&
@@ -966,12 +966,12 @@
                       ? [t].concat(r.depths)
                       : r.depths
                     : [t]),
-                (s = d(e.main, s, n, r.depths || [], o, l))(t, r)
+                (s = p(e.main, s, n, r.depths || [], o, i))(t, r)
               );
             }
             return (
-              (p.isTop = !0),
-              (p._setup = function (a) {
+              (d.isTop = !0),
+              (d._setup = function (a) {
                 if (a.partial)
                   (n.protoAccessControl = a.protoAccessControl),
                     (n.helpers = a.helpers),
@@ -979,7 +979,7 @@
                     (n.decorators = a.decorators),
                     (n.hooks = a.hooks);
                 else {
-                  var i = o.extend({}, t.helpers, a.helpers);
+                  var l = o.extend({}, t.helpers, a.helpers);
                   !(function (e, t) {
                     Object.keys(e).forEach(function (r) {
                       var n = e[r];
@@ -990,8 +990,8 @@
                         });
                       })(n, t);
                     });
-                  })(i, n),
-                    (n.helpers = i),
+                  })(l, n),
+                    (n.helpers = l),
                     e.usePartial &&
                       (n.partials = n.mergeIfNeeded(a.partials, t.partials)),
                     (e.usePartial || e.useDecorators) &&
@@ -999,18 +999,18 @@
                     (n.hooks = {}),
                     (n.protoAccessControl = u.createProtoAccessControl(a));
                   var c = a.allowCallsToHelperMissing || r;
-                  l.moveHelperToHooks(n, "helperMissing", c),
-                    l.moveHelperToHooks(n, "blockHelperMissing", c);
+                  i.moveHelperToHooks(n, "helperMissing", c),
+                    i.moveHelperToHooks(n, "blockHelperMissing", c);
                 }
               }),
-              (p._child = function (t, r, o, i) {
+              (d._child = function (t, r, o, l) {
                 if (e.useBlockParams && !o)
                   throw new a.default("must pass block params");
-                if (e.useDepths && !i)
+                if (e.useDepths && !l)
                   throw new a.default("must pass parent depths");
-                return c(n, t, e[t], r, 0, o, i);
+                return c(n, t, e[t], r, 0, o, l);
               }),
-              p
+              d
             );
           }),
           (t.wrapProgram = c),
@@ -1029,21 +1029,21 @@
             var n = r.data && r.data["partial-block"];
             (r.partial = !0),
               r.ids && (r.data.contextPath = r.ids[0] || r.data.contextPath);
-            var l = void 0;
+            var i = void 0;
             if (
               (r.fn &&
-                r.fn !== p &&
+                r.fn !== d &&
                 (function () {
-                  r.data = i.createFrame(r.data);
+                  r.data = l.createFrame(r.data);
                   var e = r.fn;
-                  (l = r.data["partial-block"] =
+                  (i = r.data["partial-block"] =
                     function (t) {
                       var r =
                         arguments.length <= 1 || void 0 === arguments[1]
                           ? {}
                           : arguments[1];
                       return (
-                        (r.data = i.createFrame(r.data)),
+                        (r.data = l.createFrame(r.data)),
                         (r.data["partial-block"] = n),
                         e(t, r)
                       );
@@ -1051,7 +1051,7 @@
                     e.partials &&
                       (r.partials = o.extend({}, r.partials, e.partials));
                 })(),
-              void 0 === e && l && (e = l),
+              void 0 === e && i && (e = i),
               void 0 === e)
             )
               throw new a.default(
@@ -1059,7 +1059,7 @@
               );
             if (e instanceof Function) return e(t, r);
           }),
-          (t.noop = p);
+          (t.noop = d);
         var n,
           o = (function (e) {
             if (e && e.__esModule) return e;
@@ -1070,22 +1070,22 @@
             return (t.default = e), t;
           })(r(849)),
           a = (n = r(769)) && n.__esModule ? n : { default: n },
-          i = r(871),
-          l = r(277),
+          l = r(871),
+          i = r(277),
           s = r(614),
           u = r(865);
-        function c(e, t, r, n, o, a, i) {
-          function l(t) {
+        function c(e, t, r, n, o, a, l) {
+          function i(t) {
             var o =
                 arguments.length <= 1 || void 0 === arguments[1]
                   ? {}
                   : arguments[1],
-              l = i;
+              i = l;
             return (
-              !i ||
-                t == i[0] ||
-                (t === e.nullContext && null === i[0]) ||
-                (l = [t].concat(i)),
+              !l ||
+                t == l[0] ||
+                (t === e.nullContext && null === l[0]) ||
+                (i = [t].concat(l)),
               r(
                 e,
                 t,
@@ -1093,24 +1093,24 @@
                 e.partials,
                 o.data || n,
                 a && [o.blockParams].concat(a),
-                l,
+                i,
               )
             );
           }
           return (
-            ((l = d(r, l, e, i, n, a)).program = t),
-            (l.depth = i ? i.length : 0),
-            (l.blockParams = o || 0),
-            l
+            ((i = p(r, i, e, l, n, a)).program = t),
+            (i.depth = l ? l.length : 0),
+            (i.blockParams = o || 0),
+            i
           );
         }
-        function p() {
+        function d() {
           return "";
         }
-        function d(e, t, r, n, a, i) {
+        function p(e, t, r, n, a, l) {
           if (e.decorator) {
-            var l = {};
-            (t = e.decorator(t, l, r, n && n[0], a, i, n)), o.extend(t, l);
+            var i = {};
+            (t = e.decorator(t, i, r, n && n[0], a, l, n)), o.extend(t, i);
           }
           return t;
         }
@@ -1131,7 +1131,7 @@
       849: (e, t) => {
         "use strict";
         (t.__esModule = !0),
-          (t.extend = i),
+          (t.extend = l),
           (t.indexOf = function (e, t) {
             for (var r = 0, n = e.length; r < n; r++) if (e[r] === t) return r;
             return -1;
@@ -1149,7 +1149,7 @@
             return (!e && 0 !== e) || !(!u(e) || 0 !== e.length);
           }),
           (t.createFrame = function (e) {
-            var t = i({}, e);
+            var t = l({}, e);
             return (t._parent = e), t;
           }),
           (t.blockParams = function (e, t) {
@@ -1172,15 +1172,15 @@
         function a(e) {
           return r[e];
         }
-        function i(e) {
+        function l(e) {
           for (var t = 1; t < arguments.length; t++)
             for (var r in arguments[t])
               Object.prototype.hasOwnProperty.call(arguments[t], r) &&
                 (e[r] = arguments[t][r]);
           return e;
         }
-        var l = Object.prototype.toString;
-        t.toString = l;
+        var i = Object.prototype.toString;
+        t.toString = i;
         var s = function (e) {
           return "function" == typeof e;
         };
@@ -1188,7 +1188,7 @@
           (t.isFunction = s =
             function (e) {
               return (
-                "function" == typeof e && "[object Function]" === l.call(e)
+                "function" == typeof e && "[object Function]" === i.call(e)
               );
             }),
           (t.isFunction = s);
@@ -1196,7 +1196,7 @@
           Array.isArray ||
           function (e) {
             return (
-              !(!e || "object" != typeof e) && "[object Array]" === l.call(e)
+              !(!e || "object" != typeof e) && "[object Array]" === i.call(e)
             );
           };
         t.isArray = u;
@@ -1214,133 +1214,67 @@
   }
   (() => {
     "use strict";
-    const e = document.getElementById("root"),
-      t = r(528),
-      n = r(781);
-    let o = 0;
-    function a() {
-      let r = (function (e = 0, t = 0, r = null) {
-        if (0 === e) return { recipes: [] };
-        console.log(e, t, r);
-        const n = {
-          recipes: [
-            {
-              caption: "Mac-N-Cheese",
-              description:
-                "Macaroni with cheese cooked in a saucepan. Traditional American meal.",
-              image_url:
-                "https://massystorestt.com/wp-content/uploads/2014/10/STOVE-TOP-MAC-AND-CHEESE-1024x768.jpg",
-              id: 1,
-            },
-            {
-              caption: "Soup Yay Tsun",
-              description:
-                "Chinese morning meal. Consists of eggs and tomatoes",
-              image_url:
-                "https://travel-dom.ru/wp-content/uploads/2020/06/ayEsk7D7g4A.jpg",
-              id: 2,
-            },
-            {
-              caption: "Cabbage with chicken",
-              description:
-                "Dmitrov city cuisine, very nutricious dish. Simple to prepare and tasty to consume",
-              image_url: "https://5pirogov.ru/wp-content/uploads/3-76.jpg",
-              id: 3,
-            },
-          ],
-        };
+    const e = "https://api.blueberry.adefe.xyz",
+      t = document.getElementById("root"),
+      n = r(528),
+      o = r(781);
+    let a = 0;
+    function l() {
+      (async function (t = 0, r = 0, n = null) {
+        if (0 === t) return { recipes: [] };
+        const o = "/recipe/all";
         return (
-          r &&
-            (n.recipes = n.recipes.filter(
-              (e) => e.caption.includes(r) || e.description.includes(r),
-            )),
-          n
+          console.log(o, t, r, n),
+          fetch(e + o, { method: "get" }).then((e) =>
+            e.json().then((e) => (console.log("Data received", e), e)),
+          )
         );
-      })(10, 0, "");
-      (e.innerHTML = t(r)),
-        e && (e.innerHTML = t(r)),
-        e.querySelector(".searchbar"),
-        e.querySelector(".button-search").addEventListener("click", () => {
-          a();
-        }),
-        e.querySelectorAll(".recipe-list-element").forEach((t) => {
-          t.addEventListener("click", (r) => {
-            (e.innerHTML = ""),
-              t.getAttribute("data-id"),
-              (o = 0),
-              i({
-                caption: "Mac-N-Cheese",
-                description:
-                  "Macaroni with cheese cooked in a saucepan. Traditional American meal.",
-                image_url:
-                  "https://massystorestt.com/wp-content/uploads/2014/10/STOVE-TOP-MAC-AND-CHEESE-1024x768.jpg",
-                steps: [
-                  {
-                    caption: "Prepare thyself",
-                    description:
-                      "Now we well cook Mac-N-Cheese. Prepare saucepan with boiling water, macaroni of your choise, grated cheese and some butter",
-                    image_url:
-                      "https://versiya.info/uploads/posts/2020-04/1586278312_airbrush_20200407194850.jpg",
-                    duration: 60,
-                  },
-                  {
-                    caption: "Boil macaroni",
-                    description:
-                      "Boil macaroni in boiling water for 10 minutes",
-                    image_url:
-                      "https://ketokotleta.ru/wp-content/uploads/9/a/8/9a86279d376c3a68fba78745fa578b79.jpeg",
-                    duration: 600,
-                  },
-                  {
-                    caption: "Drain almost all water",
-                    description:
-                      "Drain almost all the water from the macaroni. They should remain in the saucepan in the remaining amount of water",
-                    image_url: "https://fb.ru/media/i/4/7/8/0/4/0/i/478040.jpg",
-                    duration: 60,
-                  },
-                  {
-                    caption: "Add cheese and butter",
-                    description:
-                      "Add 150 grams of grated cheese and 15 grams of butter",
-                    image_url:
-                      "https://img.povar.ru/uploads/7a/41/03/30/spagetti_s_sirom-84792.jpg",
-                    duration: 45,
-                  },
-                  {
-                    caption: "Stir well",
-                    description:
-                      "Stir all together until it all mixes and gives you finished dish",
-                    image_url:
-                      "https://cdn.idntimes.com/content-images/post/20210621/opt-aboutcom-coeus-resources-content-migration-serious-eats-seriouseatscom-recipes-images-2015-10-20151006-macaroni-and-cheese-stovetop-food-lab-18-20kenji-401e7a44dba5478d866cdda7e6c48bf2-f5ba829bc421e77ede03054370bf5861.jpg",
-                    duration: 180,
-                  },
-                  {
-                    caption: "Congratulations!",
-                    description: "Enjoy your meal!",
-                    image_url:
-                      "https://images.iptv.rt.ru/images/c6u67rjir4ssllttbseg.jpg",
-                    duration: 180,
-                  },
-                ],
-              });
+      })(10, 0, "").then((r) => {
+        console.log("Data received by main JS", r),
+          (t.innerHTML = n(r)),
+          t && (t.innerHTML = n(r)),
+          t.querySelector(".searchbar"),
+          t.querySelector(".button-search").addEventListener("click", () => {
+            l();
+          }),
+          t.querySelectorAll(".recipe-list-element").forEach((r) => {
+            r.addEventListener("click", (n) => {
+              (t.innerHTML = ""),
+                (function (t) {
+                  const r = `/recipe/${t}`;
+                  return (
+                    console.log(r, t),
+                    fetch(e + r, { method: "get" }).then((e) =>
+                      e
+                        .json()
+                        .then((e) => (console.log("Data received", e), e)),
+                    )
+                  );
+                })(r.getAttribute("data-id")).then((e) => {
+                  (a = 0),
+                    0 != e.length
+                      ? i(e)
+                      : alert("Sorry, this recipe is not ready");
+                });
+            });
           });
-        });
+      });
     }
-    function i(t) {
-      (e.innerHTML = n(t.steps[o])),
-        e.querySelector(".button-previous").addEventListener("click", (e) => {
-          o > 0 && --o, i(t);
+    function i(e) {
+      (t.innerHTML = o(e.steps[a])),
+        t.querySelector(".button-previous").addEventListener("click", (t) => {
+          a > 0 && --a, i(e);
         }),
-        e.querySelector(".button-pause").addEventListener("click", (e) => {
+        t.querySelector(".button-pause").addEventListener("click", (e) => {
           console.log("Not implemented");
         }),
-        e.querySelector(".button-next").addEventListener("click", (e) => {
-          o < t.steps.length - 1 && ++o, i(t);
+        t.querySelector(".button-next").addEventListener("click", (t) => {
+          a < e.steps.length - 1 && ++a, i(e);
         }),
-        e.querySelector(".button-exit").addEventListener("click", (e) => {
-          a();
+        t.querySelector(".button-exit").addEventListener("click", (e) => {
+          l();
         });
     }
-    a();
+    l();
   })();
 })();
