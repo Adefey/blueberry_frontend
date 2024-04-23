@@ -20,9 +20,8 @@ footer {
   flex-direction: column;
   justify-content: space-around;
   background-color: #eeeeee;
-  position:absolute;
-  bottom:0;
 }
+
 
 .text-div {
   font-size: 24px;
@@ -49,8 +48,8 @@ footer {
 .recipe-list-element {
   display: flex;
   flex-direction: row;
-  margin: 15px;
-  width: 46%;
+  margin: auto;
+  width: 45%;
   height: 10rem;
 }
 
