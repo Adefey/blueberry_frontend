@@ -48,7 +48,7 @@ function renderStep(data) {
 
   const pauseButton = root.querySelector(".button-pause");
   pauseButton.addEventListener("click", (e) => {
-    //timer.stop ???
+    console.log("Not implemented");
   });
 
   const nextButton = root.querySelector(".button-next");
