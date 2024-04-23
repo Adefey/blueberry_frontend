@@ -20,6 +20,8 @@ footer {
   flex-direction: column;
   justify-content: space-around;
   background-color: #eeeeee;
+  position:fixed;
+  bottom:0;
 }
 
 .text-div {
