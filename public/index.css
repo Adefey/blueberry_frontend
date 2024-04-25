@@ -16,6 +16,7 @@ header {
 }
 
 footer {
+  font-size: 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -149,7 +150,6 @@ img {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
 
 .search-container {
   display: flex;
