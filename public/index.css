@@ -13,6 +13,7 @@ header {
   flex-direction: row;
   justify-content: space-around;
   background-color: #eeeeee;
+  margin-bottom: 10px;
 }
 
 footer {
@@ -20,6 +21,7 @@ footer {
   flex-direction: column;
   justify-content: space-around;
   background-color: #eeeeee;
+  margin-top: 10px;
 }
 
 .text-div {
