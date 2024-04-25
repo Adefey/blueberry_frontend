@@ -44,12 +44,59 @@ footer {
   width: 70%;
 }
 
-.recipe-list-element {
-  display: flex;
-  flex-direction: row;
-  margin: 15px;
-  width: 45%;
-  height: 10rem;
+/* Custom, iPhone Retina */
+@media only screen and (min-width: 320px) {
+  .recipe-list-element {
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+    width: 95%;
+    height: 10rem;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 480px) {
+  .recipe-list-element {
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+    width: 95%;
+    height: 10rem;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+  .recipe-list-element {
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+    width: 45%;
+    height: 10rem;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+  .recipe-list-element {
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+    width: 45%;
+    height: 10rem;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
+  .recipe-list-element {
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+    width: 45%;
+    height: 10rem;
+  }
 }
 
 .recipe-list-element:hover {
