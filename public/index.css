@@ -114,6 +114,7 @@ footer {
 
 .recipe-image {
   width: 50%;
+  max-height: 26rem;
   overflow: hidden;
 }
 
@@ -137,10 +138,18 @@ img {
 
 .description {
   display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.description-single {
+  display: -webkit-box;
   -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 
 .search-container {
   display: flex;
