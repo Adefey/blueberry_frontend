@@ -1233,10 +1233,9 @@
       console.log("Getting data for search query:", l),
         (async function (t = 20, r = 0, n = null) {
           if (0 === t) return { recipes: [] };
-          const o =
-            "/recipe/all" +
-            new URLSearchParams({ count: t, offset: r, search_query: n });
+          let o = `/recipe/all?count=${t}&offset=${r}`;
           return (
+            n && "" != n && (o += `&search_query=${n}`),
             console.log(o, t, r, n),
             fetch(e + o, {
               method: "get",
