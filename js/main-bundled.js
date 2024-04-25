@@ -1217,7 +1217,7 @@
     const e = "https://api.blueberry.adefe.xyz";
     "serviceWorker" in navigator &&
       navigator.serviceWorker
-        .register("../public/sw.js")
+        .register("../public/sw.js", { scope: "/" })
         .then((e) => {
           console.log("Registered", e);
         })
