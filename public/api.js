@@ -1,10 +1,16 @@
 const backendUrl = "https://api.blueberry.adefe.xyz";
 
-async function recipeAll(count = 0, offset = 0, search_query = null) {
+async function recipeAll(count = 20, offset = 0, search_query = null) {
   if (count === 0) {
     return { recipes: [] };
   }
-  const handleUrl = "/recipe/all";
+  const handleUrl =
+    "/recipe/all" +
+    new URLSearchParams({
+      count: count,
+      offset: offset,
+      search_query: search_query,
+    });
   console.log(handleUrl, count, offset, search_query);
 
   return fetch(backendUrl + handleUrl, {
