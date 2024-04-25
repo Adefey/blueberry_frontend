@@ -1,5 +1,16 @@
 import { recipeAll, recipeId } from "./api.js";
 
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("sw.js")
+    .then((reg) => {
+      console.log("Registered", reg);
+    })
+    .catch((reg) => {
+      console.error("Not registered", reg);
+    });
+}
+
 const root = document.getElementById("root");
 
 const recipeListTmlp = require("../templates/recipe-list.hbs");

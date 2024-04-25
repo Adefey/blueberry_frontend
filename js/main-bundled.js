@@ -1214,8 +1214,17 @@
   }
   (() => {
     "use strict";
-    const e = "https://api.blueberry.adefe.xyz",
-      t = document.getElementById("root"),
+    const e = "https://api.blueberry.adefe.xyz";
+    "serviceWorker" in navigator &&
+      navigator.serviceWorker
+        .register("sw.js")
+        .then((e) => {
+          console.log("Registered", e);
+        })
+        .catch((e) => {
+          console.error("Not registered", e);
+        });
+    const t = document.getElementById("root"),
       n = r(528),
       o = r(781);
     let a = 0;
