@@ -2,7 +2,7 @@ import { recipeAll, recipeId } from "./api.js";
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
-    .register("../public/sw.js", { scope: "/" })
+    .register("../public/sw.js")
     .then((reg) => {
       console.log("Registered", reg);
     })
