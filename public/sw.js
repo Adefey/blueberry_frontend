@@ -1,13 +1,13 @@
 const CACHE_NAME = "blueberry-cache-v1";
 const CACHE_URLS = [
   "/",
-  "js/main-bundled.js",
-  "public/index.js",
-  "public/sw.js",
-  "public/api.js",
-  "public/index.html",
-  "public/index.css",
-  "favicon.ico",
+  "../js/main-bundled.js",
+  "../public/index.js",
+  "../public/sw.js",
+  "../public/api.js",
+  "../public/index.html",
+  "../public/index.css",
+  "../favicon.ico",
 ];
 
 this.addEventListener("install", (event) => {
