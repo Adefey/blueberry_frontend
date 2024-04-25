@@ -1227,72 +1227,95 @@
     const t = document.getElementById("root"),
       n = r(528),
       o = r(781);
-    let a = 0;
-    function l() {
-      (async function (t = 0, r = 0, n = null) {
-        if (0 === t) return { recipes: [] };
-        const o = "/recipe/all";
-        return (
-          console.log(o, t, r, n),
-          fetch(e + o, {
-            method: "get",
-            mode: "cors",
-            headers: { "Content-Type": "application/json" },
-          }).then((e) =>
-            e.json().then((e) => (console.log("Data received", e), e)),
-          )
-        );
-      })(10, 0, "").then((r) => {
-        console.log("Data received by main JS", r),
-          (t.innerHTML = n(r)),
-          t && (t.innerHTML = n(r)),
-          t.querySelector(".searchbar"),
-          t.querySelector(".button-search").addEventListener("click", () => {
-            l();
-          }),
-          t.querySelectorAll(".recipe-list-element").forEach((r) => {
-            r.addEventListener("click", (n) => {
-              (t.innerHTML = ""),
-                (function (t) {
-                  const r = `/recipe/${t}`;
-                  return (
-                    console.log(r, t),
-                    fetch(e + r, {
-                      method: "get",
-                      mode: "cors",
-                      headers: { "Content-Type": "application/json" },
-                    }).then((e) =>
-                      e
-                        .json()
-                        .then((e) => (console.log("Data received", e), e)),
-                    )
-                  );
-                })(r.getAttribute("data-id")).then((e) => {
-                  console.log("Data received by main JS", e),
-                    (a = 0),
-                    0 != e.length
-                      ? i(e)
-                      : alert("Sorry, this recipe is not ready");
+    let a = 0,
+      l = "";
+    function i() {
+      console.log("Getting data for search query:", l),
+        (async function (t = 0, r = 0, n = null) {
+          if (0 === t) return { recipes: [] };
+          const o = "/recipe/all";
+          return (
+            console.log(o, t, r, n),
+            fetch(e + o, {
+              method: "get",
+              mode: "cors",
+              headers: { "Content-Type": "application/json" },
+            })
+              .then((e) =>
+                e.json().then((e) => (console.log("Data received", e), e)),
+              )
+              .catch(
+                (e) => (
+                  console.error("Error loading data for", o, "Error:", e), null
+                ),
+              )
+          );
+        })(10, 0, l)
+          .then((r) => {
+            console.log("Data received by main JS", r),
+              (t.innerHTML = n(r)),
+              t && (t.innerHTML = n(r));
+            const o = t.querySelector(".searchbar");
+            t.querySelector(".button-search").addEventListener("click", () => {
+              (l = o.value), i();
+            }),
+              t.querySelectorAll(".recipe-list-element").forEach((r) => {
+                r.addEventListener("click", (n) => {
+                  (t.innerHTML = ""),
+                    (function (t) {
+                      const r = `/recipe/${t}`;
+                      return (
+                        console.log(r, t),
+                        fetch(e + r, {
+                          method: "get",
+                          mode: "cors",
+                          headers: { "Content-Type": "application/json" },
+                        }).then((e) =>
+                          e
+                            .json()
+                            .then((e) => (console.log("Data received", e), e))
+                            .catch(
+                              (e) => (
+                                console.error(
+                                  "Error loading data for",
+                                  r,
+                                  "Error:",
+                                  e,
+                                ),
+                                null
+                              ),
+                            ),
+                        )
+                      );
+                    })(r.getAttribute("data-id")).then((e) => {
+                      console.log("Data received by main JS", e),
+                        (a = 0),
+                        0 != e.length
+                          ? s(e)
+                          : alert("Sorry, this recipe is not ready");
+                    });
                 });
-            });
+              });
+          })
+          .catch((e) => {
+            console.error("Something is broken...", e);
           });
-      });
     }
-    function i(e) {
+    function s(e) {
       (t.innerHTML = o(e.steps[a])),
         t.querySelector(".button-previous").addEventListener("click", (t) => {
-          a > 0 && --a, i(e);
+          a > 0 && --a, s(e);
         }),
         t.querySelector(".button-pause").addEventListener("click", (e) => {
           console.log("Not implemented");
         }),
         t.querySelector(".button-next").addEventListener("click", (t) => {
-          a < e.steps.length - 1 && ++a, i(e);
+          a < e.steps.length - 1 && ++a, s(e);
         }),
         t.querySelector(".button-exit").addEventListener("click", (e) => {
-          l();
+          i();
         });
     }
-    l();
+    i();
   })();
 })();
