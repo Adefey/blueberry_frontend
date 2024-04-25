@@ -16,7 +16,6 @@ header {
 }
 
 footer {
-  font-size: 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -25,6 +24,12 @@ footer {
 
 .text-div {
   font-size: 24px;
+  align-self: center;
+  margin: 10px;
+}
+
+.text-div-small {
+  font-size: 16px;
   align-self: center;
   margin: 10px;
 }
