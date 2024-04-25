@@ -17,9 +17,11 @@ const recipeListTmlp = require("../templates/recipe-list.hbs");
 const recipeTmpl = require("../templates/recipe.hbs");
 
 let currentStep = 0;
+let lastSearchQuery = "";
 
 function renderRecipeList() {
-  recipeAll(10, 0, "").then((recipeListData) => {
+  console.log("Getting data for search query:", lastSearchQuery);
+  recipeAll(10, 0, lastSearchQuery).then((recipeListData) => {
     console.log("Data received by main JS", recipeListData);
     root.innerHTML = recipeListTmlp(recipeListData);
 
@@ -31,6 +33,7 @@ function renderRecipeList() {
 
     const searchButton = root.querySelector(".button-search");
     searchButton.addEventListener("click", () => {
+      lastSearchQuery = searchBar.value;
       renderRecipeList();
     });
 

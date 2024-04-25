@@ -13,12 +13,17 @@ async function recipeAll(count = 0, offset = 0, search_query = null) {
     headers: {
       "Content-Type": "application/json",
     },
-  }).then((response) => {
-    return response.json().then((responseJson) => {
-      console.log("Data received", responseJson);
-      return responseJson;
+  })
+    .then((response) => {
+      return response.json().then((responseJson) => {
+        console.log("Data received", responseJson);
+        return responseJson;
+      });
+    })
+    .catch((error) => {
+      console.error("Error loading data for", handleUrl, "Error:", error);
+      return null;
     });
-  });
 }
 
 function recipeId(id) {
@@ -32,10 +37,16 @@ function recipeId(id) {
       "Content-Type": "application/json",
     },
   }).then((response) => {
-    return response.json().then((responseJson) => {
-      console.log("Data received", responseJson);
-      return responseJson;
-    });
+    return response
+      .json()
+      .then((responseJson) => {
+        console.log("Data received", responseJson);
+        return responseJson;
+      })
+      .catch((error) => {
+        console.error("Error loading data for", handleUrl, "Error:", error);
+        return null;
+      });
   });
 }
 
