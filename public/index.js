@@ -89,6 +89,7 @@ function renderStep(data) {
     prevButton.disabled = true;
   } else {
     prevButton.addEventListener("click", (e) => {
+      clearInterval(timer);
       --currentStep;
       renderStep(data);
     });
@@ -105,6 +106,7 @@ function renderStep(data) {
     nextButton.disabled = true;
   } else {
     nextButton.addEventListener("click", (e) => {
+      clearInterval(timer);
       ++currentStep;
       renderStep(data);
     });

@@ -1278,7 +1278,7 @@
       0 === a
         ? (u.disabled = !0)
         : u.addEventListener("click", (t) => {
-            --a, s(e);
+            clearInterval(l), --a, s(e);
           }),
         t.querySelector(".button-pause").addEventListener("click", (e) => {
           clearInterval(l), (r.innerHTML = "Cook as you feel");
@@ -1287,7 +1287,7 @@
       a === e.steps.length - 1
         ? (c.disabled = !0)
         : c.addEventListener("click", (t) => {
-            ++a, s(e);
+            clearInterval(l), ++a, s(e);
           }),
         t.querySelector(".button-exit").addEventListener("click", (e) => {
           i();
