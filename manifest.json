@@ -2,7 +2,7 @@
   "name": "Blueberry - Cooking App",
   "short_name": "Blueberry",
   "lang": "en-EN",
-  "start_url": "/index.html",
+  "start_url": "/",
   "display": "fullscreen",
   "orientation": "portrait",
   "background_color": "#FFFFFF",
