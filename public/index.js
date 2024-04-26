@@ -1,4 +1,5 @@
 import { recipeAll, recipeId } from "./api.js";
+import { setToTimeString } from "./sec_to_date.js";
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
@@ -63,6 +64,26 @@ function renderRecipeList() {
 function renderStep(data) {
   root.innerHTML = recipeTmpl(data.steps[currentStep]);
 
+  const timerText = root.querySelector(".timer");
+
+  let elapsed = data.steps[currentStep].duration;
+  let timer = setInterval(() => {
+    timerText.innerHTML = "Timer: " + setToTimeString(elapsed);
+    if (elapsed === 0 && currentStep !== data.steps.length - 1) {
+      ++currentStep;
+      console.log("Next slide");
+      renderStep(data);
+    }
+    --elapsed;
+  }, 1000);
+
+  setTimeout(
+    () => {
+      clearInterval(timer);
+    },
+    (data.steps[currentStep].duration + 2) * 1000,
+  );
+
   const prevButton = root.querySelector(".button-previous");
   if (currentStep === 0) {
     prevButton.disabled = true;
@@ -75,12 +96,13 @@ function renderStep(data) {
 
   const pauseButton = root.querySelector(".button-pause");
   pauseButton.addEventListener("click", (e) => {
-    console.log("Not implemented");
+    clearInterval(timer);
+    timerText.innerHTML = "Cook as you feel";
   });
 
   const nextButton = root.querySelector(".button-next");
   if (currentStep === data.steps.length - 1) {
-    nextButtonButton.disabled = true;
+    nextButton.disabled = true;
   } else {
     nextButton.addEventListener("click", (e) => {
       ++currentStep;

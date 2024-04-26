@@ -204,7 +204,8 @@ img {
 }
 
 button {
-  min-width: 120px;
+  min-width: 10%;
+  max-width: 20%;
   padding: 5px;
   transition-duration: 0.4s;
   border: 2px solid #4f86f7;
@@ -230,6 +231,7 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 5px 0 5px;
 }
 
 .searchbar {
