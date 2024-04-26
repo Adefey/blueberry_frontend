@@ -204,7 +204,7 @@ img {
 }
 
 button {
-  min-width: 100px;
+  min-width: 120px;
   padding: 5px;
   transition-duration: 0.4s;
   border: 2px solid #4f86f7;
@@ -216,13 +216,17 @@ button {
   height: 50px;
 }
 
+button:disabled {
+  opacity: 0;
+}
+
 button:hover {
   background-color: #4f86f7; /* Green */
   color: white;
 }
 
 .timer {
-  min-width: 50px;
+  min-width: 120px;
   display: flex;
   justify-content: center;
   align-items: center;

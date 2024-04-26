@@ -1,0 +1,18 @@
+{
+  "name": "Blueberry - Cooking App",
+  "short_name": "Blueberry",
+  "lang": "en-EN",
+  "start_url": "/index.html",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#4f86f7",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "64x64"
+    }
+  ]
+}

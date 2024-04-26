@@ -64,12 +64,14 @@ function renderStep(data) {
   root.innerHTML = recipeTmpl(data.steps[currentStep]);
 
   const prevButton = root.querySelector(".button-previous");
-  prevButton.addEventListener("click", (e) => {
-    if (currentStep > 0) {
+  if (currentStep === 0) {
+    prevButton.disabled = true;
+  } else {
+    prevButton.addEventListener("click", (e) => {
       --currentStep;
-    }
-    renderStep(data);
-  });
+      renderStep(data);
+    });
+  }
 
   const pauseButton = root.querySelector(".button-pause");
   pauseButton.addEventListener("click", (e) => {
@@ -77,12 +79,14 @@ function renderStep(data) {
   });
 
   const nextButton = root.querySelector(".button-next");
-  nextButton.addEventListener("click", (e) => {
-    if (currentStep < data.steps.length - 1) {
+  if (currentStep === data.steps.length - 1) {
+    nextButtonButton.disabled = true;
+  } else {
+    nextButton.addEventListener("click", (e) => {
       ++currentStep;
-    }
-    renderStep(data);
-  });
+      renderStep(data);
+    });
+  }
 
   const exitButton = root.querySelector(".button-exit");
   exitButton.addEventListener("click", (e) => {
