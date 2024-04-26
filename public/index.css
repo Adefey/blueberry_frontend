@@ -29,6 +29,7 @@ footer {
   bottom: 0;
   height: 6rem;
   width: 100%;
+  text-align: center;
 }
 
 .text-div {
@@ -48,10 +49,13 @@ footer {
 }
 
 .app-name {
-  color: #4f86f7;
   font-size: 48px;
   align-self: center;
+}
+
+a {
   text-decoration: none;
+  color: #4f86f7;
 }
 
 #root {
