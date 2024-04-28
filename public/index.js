@@ -19,16 +19,40 @@ const recipeTmpl = require("../templates/recipe.hbs");
 
 let currentStep = 0;
 let lastSearchQuery = "";
+let currentPage = 0;
+let totalRecieps = 0;
+let totalPages = 0;
+const RECIPES_PER_PAGE = 10;
 
 function renderRecipeList() {
   console.log("Getting data for search query:", lastSearchQuery);
-  recipeAll(10, 0, lastSearchQuery)
+  recipeAll(RECIPES_PER_PAGE, currentPage * RECIPES_PER_PAGE, lastSearchQuery)
     .then((recipeListData) => {
       console.log("Data received by main JS", recipeListData);
+      totalRecieps = recipeListData.total;
+      totalPages = Math.ceil(totalRecieps / RECIPES_PER_PAGE);
+      console.log("Total recipes:", totalRecieps, "Total pages:", totalPages);
+
       root.innerHTML = recipeListTmlp(recipeListData);
 
-      if (root) {
-        root.innerHTML = recipeListTmlp(recipeListData);
+      const prevButton = root.querySelector(".button-prev-list");
+      if (currentPage === 0) {
+        prevButton.disabled = true;
+      } else {
+        prevButton.addEventListener("click", () => {
+          --currentPage;
+          renderRecipeList();
+        });
+      }
+
+      const nextButton = root.querySelector(".button-next-list");
+      if (currentPage === totalPages - 1) {
+        nextButton.disabled = true;
+      } else {
+        nextButton.addEventListener("click", () => {
+          ++currentPage;
+          renderRecipeList();
+        });
       }
 
       const searchBar = root.querySelector(".searchbar");

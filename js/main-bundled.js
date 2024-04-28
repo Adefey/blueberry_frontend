@@ -39,8 +39,8 @@
                       hash: {},
                       data: o,
                       loc: {
-                        start: { line: 7, column: 53 },
-                        end: { line: 7, column: 59 },
+                        start: { line: 9, column: 53 },
+                        end: { line: 9, column: 59 },
                       },
                     })
                   : a,
@@ -57,8 +57,8 @@
                       hash: {},
                       data: o,
                       loc: {
-                        start: { line: 9, column: 18 },
-                        end: { line: 9, column: 31 },
+                        start: { line: 11, column: 18 },
+                        end: { line: 11, column: 31 },
                       },
                     })
                   : a,
@@ -75,8 +75,8 @@
                       hash: {},
                       data: o,
                       loc: {
-                        start: { line: 9, column: 38 },
-                        end: { line: 9, column: 49 },
+                        start: { line: 11, column: 38 },
+                        end: { line: 11, column: 49 },
                       },
                     })
                   : a,
@@ -93,8 +93,8 @@
                       hash: {},
                       data: o,
                       loc: {
-                        start: { line: 12, column: 32 },
-                        end: { line: 12, column: 43 },
+                        start: { line: 14, column: 32 },
+                        end: { line: 14, column: 43 },
                       },
                     })
                   : a,
@@ -113,8 +113,8 @@
                       hash: {},
                       data: o,
                       loc: {
-                        start: { line: 13, column: 33 },
-                        end: { line: 13, column: 48 },
+                        start: { line: 15, column: 33 },
+                        end: { line: 15, column: 48 },
                       },
                     })
                   : a,
@@ -131,7 +131,7 @@
                   if (Object.prototype.hasOwnProperty.call(e, t)) return e[t];
                 };
             return (
-              '<div class="search-container">\n  <input type="text" class="searchbar" placeholder="Search recipes.." />\n  <button type="button" class="button-search">Search</button>\n</div>\n<div class="recipe-container">\n' +
+              '<div class="search-container">\n  <input type="text" class="searchbar" placeholder="Search recipes.." />\n  <button type="button" class="button-search">Search</button>\n  <button type="button" class="button-prev-list button-nav">Back</button>\n  <button type="button" class="button-next-list button-nav">Next</button>\n</div>\n<div class="recipe-container">\n' +
               (null !=
               (a = l(r, "each").call(
                 null != t ? t : e.nullContext || {},
@@ -143,8 +143,8 @@
                   inverse: e.noop,
                   data: o,
                   loc: {
-                    start: { line: 6, column: 2 },
-                    end: { line: 16, column: 11 },
+                    start: { line: 8, column: 2 },
+                    end: { line: 18, column: 11 },
                   },
                 },
               ))
@@ -1171,8 +1171,12 @@
       n = r(528),
       o = r(781);
     let a = 0,
-      l = "";
-    function i() {
+      l = "",
+      i = 0,
+      s = 0,
+      u = 0;
+    const c = 10;
+    function d() {
       console.log("Getting data for search query:", l),
         (async function (t = 20, r = 0, n = null) {
           if (0 === t) return { recipes: [] };
@@ -1194,14 +1198,28 @@
                 ),
               )
           );
-        })(10, 0, l)
+        })(c, i * c, l)
           .then((r) => {
             console.log("Data received by main JS", r),
-              (t.innerHTML = n(r)),
-              t && (t.innerHTML = n(r));
-            const o = t.querySelector(".searchbar");
+              (s = r.total),
+              (u = Math.ceil(s / c)),
+              console.log("Total recipes:", s, "Total pages:", u),
+              (t.innerHTML = n(r));
+            const o = t.querySelector(".button-prev-list");
+            0 === i
+              ? (o.disabled = !0)
+              : o.addEventListener("click", () => {
+                  --i, d();
+                });
+            const f = t.querySelector(".button-next-list");
+            i === u - 1
+              ? (f.disabled = !0)
+              : f.addEventListener("click", () => {
+                  ++i, d();
+                });
+            const h = t.querySelector(".searchbar");
             t.querySelector(".button-search").addEventListener("click", () => {
-              (l = o.value), i();
+              (l = h.value), d();
             }),
               t.querySelectorAll(".recipe-list-element").forEach((r) => {
                 r.addEventListener("click", (n) => {
@@ -1235,7 +1253,7 @@
                       console.log("Data received by main JS", e),
                         (a = 0),
                         0 != e.length
-                          ? s(e)
+                          ? p(e)
                           : alert("Sorry, this recipe is not ready");
                     });
                 });
@@ -1245,7 +1263,7 @@
             console.error("Something is broken...", e);
           });
     }
-    function s(e) {
+    function p(e) {
       t.innerHTML = o(e.steps[a]);
       const r = t.querySelector(".timer");
       let n = e.steps[a].duration,
@@ -1265,7 +1283,7 @@
             })(n)),
             0 === n &&
               a !== e.steps.length - 1 &&
-              (++a, console.log("Next slide"), s(e)),
+              (++a, console.log("Next slide"), p(e)),
             --n;
         }, 1e3);
       setTimeout(
@@ -1274,25 +1292,25 @@
         },
         1e3 * (e.steps[a].duration + 2),
       );
-      const u = t.querySelector(".button-previous");
+      const i = t.querySelector(".button-previous");
       0 === a
-        ? (u.disabled = !0)
-        : u.addEventListener("click", (t) => {
-            clearInterval(l), --a, s(e);
+        ? (i.disabled = !0)
+        : i.addEventListener("click", (t) => {
+            clearInterval(l), --a, p(e);
           }),
         t.querySelector(".button-pause").addEventListener("click", (e) => {
           clearInterval(l), (r.innerHTML = "Cook as you feel");
         });
-      const c = t.querySelector(".button-next");
+      const s = t.querySelector(".button-next");
       a === e.steps.length - 1
-        ? (c.disabled = !0)
-        : c.addEventListener("click", (t) => {
-            clearInterval(l), ++a, s(e);
+        ? (s.disabled = !0)
+        : s.addEventListener("click", (t) => {
+            clearInterval(l), ++a, p(e);
           }),
         t.querySelector(".button-exit").addEventListener("click", (e) => {
-          i();
+          d();
         });
     }
-    i();
+    d();
   })();
 })();

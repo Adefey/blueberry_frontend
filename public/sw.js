@@ -18,6 +18,16 @@ this.addEventListener("install", (event) => {
   );
 });
 
+this.addEventListener("activate", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      if (navigator.onLine) {
+        return cache.addAll(CACHE_URLS);
+      }
+    }),
+  );
+});
+
 this.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
