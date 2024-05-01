@@ -45,11 +45,11 @@ img {
 }
 
 header {
-  min-height: 10vh;
+  min-height: 100px;
 }
 
 footer {
-  min-height: 10vh;
+  min-height: 100px;
 }
 
 input {
@@ -99,12 +99,12 @@ button:disabled {
   }
 
   .adaptive-element-height {
-    height: 30vh;
+    height: 200px;
   }
 
   .recipe-step-container {
     justify-content: start;
-    height: 75vh;
+    height: 60vh;
     width: 90vw;
   }
 }
@@ -123,7 +123,7 @@ button:disabled {
   }
 
   .adaptive-element-height {
-    height: 25vh;
+    height: 250px;
   }
 
   .recipe-step-container {
