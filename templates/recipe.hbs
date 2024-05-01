@@ -1,15 +1,17 @@
-<div class="recipe border">
-  <div class="recipe-flex-row">
-    <div class="recipe-image">
+<div
+  class="recipe-step-container recipe-width recipe-height flex-column shadow-border"
+>
+  <div class="flex-row step-data">
+    <div class="image-container flex-column">
       <img src="{{image_url}}" alt="{{caption}}" />
     </div>
-    <div class="caption-description">
-      <div class="caption"><b>{{caption}}</b></div>
-      <div class="description-single">{{description}}</div>
+    <div class="text-container flex-column">
+      <div class="recipe-caption">{{caption}}</div>
+      <div class="recipe-description">{{description}}</div>
     </div>
   </div>
-  <div class="recipe-flex-row">
-    <div class="timer border"><div>Timer:
+  <div class="flex-row buttons-bar">
+    <div class="timer shadow-border"><div>Timer:
         {{sec_to_date_helper duration}}</div></div>
     <button type="button" class="button-previous">Previous step</button>
     <button type="button" class="button-pause">Disable timer</button>

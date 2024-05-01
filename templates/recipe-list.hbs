@@ -1,18 +1,15 @@
-<div class="search-container">
-  <input type="text" class="searchbar" placeholder="Search recipes.." />
-  <button type="button" class="button-search">Search</button>
-  <button type="button" class="button-prev-list button-nav">Back</button>
-  <button type="button" class="button-next-list button-nav">Next</button>
-</div>
-<div class="recipe-container">
+<div class="recipe-list-container flex-row">
   {{#each recipes}}
-    <div class="recipe-list-element border" data-id="{{id}}">
-      <div class="recipe-image">
+    <div
+      class="recipe-container adaptive-element-width adaptive-element-height flex-row shadow-border"
+      data-id="{{id}}"
+    >
+      <div class="image-container flex-column">
         <img src="{{image_url}}" alt="{{caption}}" />
       </div>
-      <div class="caption-description">
-        <div class="caption"><b>{{caption}}</b></div>
-        <div class="description">{{description}}</div>
+      <div class="text-container flex-column">
+        <div class="recipe-caption">{{caption}}</div>
+        <div class="recipe-description">{{description}}</div>
       </div>
     </div>
   {{/each}}

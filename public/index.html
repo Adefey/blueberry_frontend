@@ -6,24 +6,24 @@
     <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" href="../public/index.css" />
   </head>
-  <body>
-    <header>
-      <div class="text-div">
-        <a class="app-name" href="/">Blueberry</a>
+  <body class="flex-column">
+    <header class="flex-row adaptive-width">
+      <div>
+        <a class="app-name-text" href="/">Blueberry</a>
       </div>
-      <div class="text-div">Smart Cooking app</div>
+      <div>Smart Cooking app</div>
     </header>
-    <main>
-      <div id="root"></div>
+    <main class="adaptive-width">
+      <div id="root" class="flex-column"></div>
     </main>
-    <footer>
-      <div class="text-div-small gray-text">
+    <footer class="flex-column adaptive-width text-center">
+      <div class="unimportant-text">
         Blueberry is a cooking application, aimed to help you cook without the
         need of touching your phone or traditional cookbook. Recipes are loaded
         from our server and each step tells you exactly what to do and starts
         timer for this action automatically.
       </div>
-      <div class="text-div-small">
+      <div class="unimportant-text">
         <a href="https://github.com/Adefey/blueberry_frontend"
           >GitHub repository</a
         >
