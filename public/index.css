@@ -17,12 +17,8 @@
 
 /* Html components display rules */
 
-html {
-  margin: 0;
-}
 
 body {
-  font-size: 18px;
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
@@ -131,6 +127,11 @@ button:disabled {
     box-sizing: border-box;
     justify-content: start;
   }
+
+  html {
+    margin: 0;
+    font-size: 24px;
+  }
 }
 
 @media (min-width: 1080px) {
@@ -178,6 +179,11 @@ button:disabled {
     padding: 10px;
     box-sizing: border-box;
     justify-content: start;
+  }
+
+  html {
+    margin: 0;
+    font-size: 18px;
   }
 }
 
