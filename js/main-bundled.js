@@ -45,7 +45,7 @@
                     })
                   : a,
               ) +
-              '"\n    >\n      <div class="image-container flex-column">\n        <img src="' +
+              '"\n    >\n      <div class="image-container">\n        <img src="' +
               u(
                 typeof (a =
                   null !=
@@ -170,11 +170,11 @@
                   if (Object.prototype.hasOwnProperty.call(e, t)) return e[t];
                 };
             return (
-              '<div\n  class="recipe-step-container recipe-width recipe-height flex-column shadow-border"\n>\n  <div class="flex-row step-data">\n    <div class="image-container flex-column">\n      <img src="' +
+              '<div\n  class="recipe-step-container recipe-width recipe-height flex-column shadow-border"\n>\n  <div class="step-data">\n    <div class="image-container-step">\n      <img src="' +
               s(i(null != t ? u(t, "image_url") : t, t)) +
               '" alt="' +
               s(i(null != t ? u(t, "caption") : t, t)) +
-              '" />\n    </div>\n    <div class="text-container flex-column">\n      <div class="recipe-caption">' +
+              '" />\n    </div>\n    <div class="text-container-step flex-column">\n      <div class="recipe-caption">' +
               s(i(null != t ? u(t, "caption") : t, t)) +
               '</div>\n      <div class="recipe-description">' +
               s(i(null != t ? u(t, "description") : t, t)) +
@@ -257,7 +257,7 @@
           s = o(r(849)),
           u = o(r(624)),
           c = n(r(148));
-        function d() {
+        function p() {
           var e = new a.HandlebarsEnvironment();
           return (
             s.extend(e, a),
@@ -272,11 +272,11 @@
             e
           );
         }
-        var p = d();
-        (p.create = d),
-          c.default(p),
-          (p.default = p),
-          (t.default = p),
+        var d = p();
+        (d.create = p),
+          c.default(d),
+          (d.default = d),
+          (t.default = d),
           (e.exports = t.default);
       },
       871: (e, t, r) => {
@@ -284,7 +284,7 @@
         function n(e) {
           return e && e.__esModule ? e : { default: e };
         }
-        (t.__esModule = !0), (t.HandlebarsEnvironment = d);
+        (t.__esModule = !0), (t.HandlebarsEnvironment = p);
         var o = r(849),
           a = n(r(769)),
           l = r(277),
@@ -305,15 +305,15 @@
             8: ">= 4.3.0",
           });
         var c = "[object Object]";
-        function d(e, t, r) {
+        function p(e, t, r) {
           (this.helpers = e || {}),
             (this.partials = t || {}),
             (this.decorators = r || {}),
             l.registerDefaultHelpers(this),
             i.registerDefaultDecorators(this);
         }
-        d.prototype = {
-          constructor: d,
+        p.prototype = {
+          constructor: p,
           logger: s.default,
           log: s.default.log,
           registerHelper: function (e, t) {
@@ -357,8 +357,8 @@
             u.resetLoggedProperties();
           },
         };
-        var p = s.default.log;
-        (t.log = p), (t.createFrame = o.createFrame), (t.logger = s.default);
+        var d = s.default.log;
+        (t.log = d), (t.createFrame = o.createFrame), (t.logger = s.default);
       },
       940: (e, t, r) => {
         "use strict";
@@ -509,7 +509,7 @@
               s = "",
               u = void 0,
               c = void 0;
-            function d(t, r, a) {
+            function p(t, r, a) {
               u &&
                 ((u.key = t),
                 (u.index = r),
@@ -530,8 +530,8 @@
               e && "object" == typeof e)
             )
               if (o.isArray(e))
-                for (var p = e.length; i < p; i++)
-                  i in e && d(i, i, i === e.length - 1);
+                for (var d = e.length; i < d; i++)
+                  i in e && p(i, i, i === e.length - 1);
               else if ("function" == typeof Symbol && e[Symbol.iterator]) {
                 for (
                   var f = [], h = e[Symbol.iterator](), v = h.next();
@@ -539,14 +539,14 @@
                   v = h.next()
                 )
                   f.push(v.value);
-                for (p = (e = f).length; i < p; i++)
-                  d(i, i, i === e.length - 1);
+                for (d = (e = f).length; i < d; i++)
+                  p(i, i, i === e.length - 1);
               } else
                 (r = void 0),
                   Object.keys(e).forEach(function (e) {
-                    void 0 !== r && d(r, i - 1), (r = e), i++;
+                    void 0 !== r && p(r, i - 1), (r = e), i++;
                   }),
-                  void 0 !== r && d(r, i - 1, !0);
+                  void 0 !== r && p(r, i - 1, !0);
             return 0 === i && (s = l(this)), s;
           });
         }),
@@ -876,8 +876,8 @@
                   ) {
                     if (l.indent) {
                       for (
-                        var u = s.split("\n"), c = 0, d = u.length;
-                        c < d && (u[c] || c + 1 !== d);
+                        var u = s.split("\n"), c = 0, p = u.length;
+                        c < p && (u[c] || c + 1 !== p);
                         c++
                       )
                         u[c] = l.indent + u[c];
@@ -918,13 +918,13 @@
                 noop: t.VM.noop,
                 compilerInfo: e.compiler,
               };
-            function d(t) {
+            function p(t) {
               var r =
                   arguments.length <= 1 || void 0 === arguments[1]
                     ? {}
                     : arguments[1],
                 o = r.data;
-              d._setup(r),
+              p._setup(r),
                 !r.partial &&
                   e.useData &&
                   (o = (function (e, t) {
@@ -946,12 +946,12 @@
                       ? [t].concat(r.depths)
                       : r.depths
                     : [t]),
-                (s = p(e.main, s, n, r.depths || [], o, i))(t, r)
+                (s = d(e.main, s, n, r.depths || [], o, i))(t, r)
               );
             }
             return (
-              (d.isTop = !0),
-              (d._setup = function (a) {
+              (p.isTop = !0),
+              (p._setup = function (a) {
                 if (a.partial)
                   (n.protoAccessControl = a.protoAccessControl),
                     (n.helpers = a.helpers),
@@ -983,14 +983,14 @@
                     i.moveHelperToHooks(n, "blockHelperMissing", c);
                 }
               }),
-              (d._child = function (t, r, o, l) {
+              (p._child = function (t, r, o, l) {
                 if (e.useBlockParams && !o)
                   throw new a.default("must pass block params");
                 if (e.useDepths && !l)
                   throw new a.default("must pass parent depths");
                 return c(n, t, e[t], r, 0, o, l);
               }),
-              d
+              p
             );
           }),
           (t.wrapProgram = c),
@@ -1012,7 +1012,7 @@
             var i = void 0;
             if (
               (r.fn &&
-                r.fn !== d &&
+                r.fn !== p &&
                 (function () {
                   r.data = l.createFrame(r.data);
                   var e = r.fn;
@@ -1039,7 +1039,7 @@
               );
             if (e instanceof Function) return e(t, r);
           }),
-          (t.noop = d);
+          (t.noop = p);
         var n,
           o = (function (e) {
             if (e && e.__esModule) return e;
@@ -1078,16 +1078,16 @@
             );
           }
           return (
-            ((i = p(r, i, e, l, n, a)).program = t),
+            ((i = d(r, i, e, l, n, a)).program = t),
             (i.depth = l ? l.length : 0),
             (i.blockParams = o || 0),
             i
           );
         }
-        function d() {
+        function p() {
           return "";
         }
-        function p(e, t, r, n, a, l) {
+        function d(e, t, r, n, a, l) {
           if (e.decorator) {
             var i = {};
             (t = e.decorator(t, i, r, n && n[0], a, l, n)), o.extend(t, i);
