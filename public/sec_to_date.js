@@ -1,4 +1,8 @@
 function setToTimeString(sec_num) {
+  if (sec_num <= 0) {
+    return "Done!";
+  }
+
   let hours = Math.floor(sec_num / 3600);
   let minutes = Math.floor((sec_num - hours * 3600) / 60);
   let seconds = sec_num - hours * 3600 - minutes * 60;
@@ -12,7 +16,7 @@ function setToTimeString(sec_num) {
     seconds = "0" + seconds;
   }
 
-  return `${hours}:${minutes}:${seconds}`;
+  return `Timer: ${hours}:${minutes}:${seconds}`;
 }
 
 export { setToTimeString };
