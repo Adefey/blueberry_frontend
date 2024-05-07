@@ -64,7 +64,9 @@ function renderSearch() {
   // Callback for search action
   const searchBar = root.querySelector(".searchbar");
   const searchButton = root.querySelector(".button-search");
+  console.log("Button found: ", searchButton);
   searchButton.addEventListener("click", searchCallback(searchBar.value));
+  console.log("EventListener added");
 
   // Prev button
   const prevButton = root.querySelector(".button-prev-list");
