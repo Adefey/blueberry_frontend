@@ -1,5 +1,3 @@
-//"use strict";
-
 import { recipeAll, recipeId } from "./api.js";
 import { setToTimeString } from "./sec_to_date.js";
 
@@ -15,8 +13,11 @@ if ("serviceWorker" in navigator) {
 }
 
 // Global root element for rendering
+
 const root = document.getElementById("root");
+
 // Templates
+
 const searchContainerTmpl = require("../templates/search-container.hbs");
 const recipeListTmlp = require("../templates/recipe-list.hbs");
 const recipeTmpl = require("../templates/recipe.hbs");
@@ -113,7 +114,10 @@ function paginationButtonCallback(currentPage, stride) {
     console.log(
       `Running pagination, currentPage: ${currentPage} stride ${stride}`,
     );
-    currentPage += stride;
+    if (currentPage + stride >= 0 && currentPage + stride < state.totalPages) {
+      currentPage += stride;
+    }
+
     renderList();
   };
 }
