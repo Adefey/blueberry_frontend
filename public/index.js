@@ -57,22 +57,19 @@ function renderRecipe(recipeData) {
 // Per component render functions
 
 function renderSearch() {
-  root.innerHTML += searchContainerTmpl({
-    value: state.searchQuery,
-  });
+  root.insertAdjacentHTML(
+    "beforeend",
+    searchContainerTmpl({
+      value: state.searchQuery,
+    }),
+  );
 
   // Callback for search action
   const searchBar = root.querySelector(".searchbar");
-  const searchButton = root.querySelector(".button-search");
-  console.log("Button found: ", searchButton);
-  searchButton.addEventListener("click", searchCallback(searchBar.value));
-  console.log("EventListener added");
+  searchBar.addEventListener("change", searchCallback(searchBar));
 
   // Prev button
   const prevButton = root.querySelector(".button-prev-list");
-  if (state.currentPage === 0) {
-    prevButton.disabled = true;
-  }
   prevButton.addEventListener(
     "click",
     paginationButtonCallback(state.currentPage, -1),
@@ -80,9 +77,6 @@ function renderSearch() {
 
   // Next button
   const nextButton = root.querySelector(".button-next-list");
-  if (state.currentPage === state.totalPages - 1) {
-    nextButton.disabled = true;
-  }
   nextButton.addEventListener(
     "click",
     paginationButtonCallback(state.currentPage, +1),
@@ -103,11 +97,12 @@ function renderList() {
 
 // Callbacks and subfunctions
 
-function searchCallback(searchQuery) {
+function searchCallback(searchbar) {
   return (e) => {
+    let searchQuery = searchbar.value;
     console.log(`Running search callback, query: ${searchQuery}`);
     state.searchQuery = searchQuery;
-    renderList();
+    renderMain();
   };
 }
 
@@ -129,13 +124,15 @@ function recipeListReceived(recipeListData) {
     `Running recipe list received callback, total: ${recipeListData.total}`,
   );
   state.totalPages = Math.ceil(recipeListData.total / config.RECIPES_PER_PAGE);
-  root.innerHTML += recipeListTmlp(recipeListData);
+  root.insertAdjacentHTML("beforeend", recipeListTmlp(recipeListData));
 
   // Callback for each recipe click
   const recipeElements = root.querySelectorAll(".recipe-container");
   recipeElements.forEach((element) => {
     element.addEventListener("click", recipeClickCallback(element));
   });
+
+  updatePaginationButtons();
 }
 
 function recipeClickCallback(element) {
@@ -148,6 +145,17 @@ function recipeClickCallback(element) {
         console.error(`Something went wrong fetching recipe #${id}, ${error}`);
       });
   };
+}
+
+function updatePaginationButtons() {
+  const prevButton = root.querySelector(".button-prev-list");
+  if (state.currentPage === 0) {
+    prevButton.disabled = true;
+  }
+  const nextButton = root.querySelector(".button-next-list");
+  if (state.currentPage === state.totalPages - 1) {
+    nextButton.disabled = true;
+  }
 }
 
 function renderStep(steps, stepId) {

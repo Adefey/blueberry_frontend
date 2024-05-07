@@ -60,7 +60,7 @@ input {
 
 button {
   border-radius: 5px;
-  min-width: 50px;
+  min-width: 60px;
   max-width: 150px;
   height: 40px;
   background-color: #4f86f7;
@@ -70,7 +70,7 @@ button {
   text-decoration: none;
   box-sizing: border-box;
   margin: 5px;
-  transition-duration: 0.5s;
+  transition-duration: 0.3s;
 }
 
 button:disabled {
@@ -203,7 +203,7 @@ button:disabled {
 
 .recipe-container {
   margin: 10px;
-  transition-duration: 0.5s;
+  transition-duration: 0.3s;
 }
 
 .image-container {

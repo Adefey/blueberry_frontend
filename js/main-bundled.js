@@ -213,7 +213,7 @@
                   if (Object.prototype.hasOwnProperty.call(e, t)) return e[t];
                 };
             return (
-              '<div class="search-container flex-row">\n  <input\n    type="text"\n    class="searchbar"\n    placeholder="Search recipes.."\n    value="' +
+              '<div class="search-container flex-row">\n  <input\n    type="text"\n    class="searchbar"\n    placeholder="Search recipes..."\n    value="' +
               e.escapeExpression(
                 "function" ==
                   typeof (a =
@@ -232,7 +232,7 @@
                     })
                   : a,
               ) +
-              '"\n  />\n  <button type="button" class="button-search">Search</button>\n  <button type="button" class="button-prev-list button-nav">Back</button>\n  <button type="button" class="button-next-list button-nav">Next</button>\n</div>'
+              '"\n  />\n  <button type="button" class="button-prev-list button-nav">Back</button>\n  <button type="button" class="button-next-list button-nav">Next</button>\n</div>'
             );
           },
           useData: !0,
@@ -1214,24 +1214,25 @@
     function s() {
       (t.innerHTML = ""),
         (function () {
-          t.innerHTML += n({ value: i.searchQuery });
+          t.insertAdjacentHTML("beforeend", n({ value: i.searchQuery }));
           const e = t.querySelector(".searchbar");
           var r;
-          t.querySelector(".button-search").addEventListener(
-            "click",
-            ((r = e.value),
+          e.addEventListener(
+            "change",
+            ((r = e),
             (e) => {
-              console.log(`Running search callback, query: ${r}`),
-                (i.searchQuery = r),
-                c();
+              let t = r.value;
+              console.log(`Running search callback, query: ${t}`),
+                (i.searchQuery = t),
+                s();
             }),
-          );
-          const o = t.querySelector(".button-prev-list");
-          0 === i.currentPage && (o.disabled = !0),
-            o.addEventListener("click", d(i.currentPage, -1));
-          const a = t.querySelector(".button-next-list");
-          i.currentPage === i.totalPages - 1 && (a.disabled = !0),
-            a.addEventListener("click", d(i.currentPage, 1));
+          ),
+            t
+              .querySelector(".button-prev-list")
+              .addEventListener("click", d(i.currentPage, -1)),
+            t
+              .querySelector(".button-next-list")
+              .addEventListener("click", d(i.currentPage, 1));
         })(),
         c();
     }
@@ -1273,7 +1274,7 @@
     function p(r) {
       console.log(`Running recipe list received callback, total: ${r.total}`),
         (i.totalPages = Math.ceil(r.total / l.RECIPES_PER_PAGE)),
-        (t.innerHTML += o(r)),
+        t.insertAdjacentHTML("beforeend", o(r)),
         t.querySelectorAll(".recipe-container").forEach((t) => {
           t.addEventListener(
             "click",
@@ -1308,7 +1309,13 @@
               };
             })(t),
           );
-        });
+        }),
+        (function () {
+          const e = t.querySelector(".button-prev-list");
+          0 === i.currentPage && (e.disabled = !0);
+          const r = t.querySelector(".button-next-list");
+          i.currentPage === i.totalPages - 1 && (r.disabled = !0);
+        })();
     }
     function f(e, r) {
       console.log(`Running step ${r} rendering`),
