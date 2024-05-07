@@ -17,7 +17,6 @@
 
 /* Html components display rules */
 
-
 body {
   font-family: sans-serif;
   display: flex;
@@ -245,8 +244,9 @@ button:disabled {
 }
 
 .buttons-bar {
-  margin: 10px 20px 10px 20px;
   width: 100%;
+  padding: 10px 20px 10px 10px;
+  box-sizing: border-box;
 }
 
 .timer {
