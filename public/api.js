@@ -51,4 +51,48 @@ async function recipeId(id) {
   }
 }
 
-export { recipeAll, recipeId };
+async function login(login, password) {
+  const handleUrl = `/user/login`;
+  console.log(handleUrl);
+  try {
+    let response = await fetch(backendUrl + handleUrl, {
+      method: "post",
+      mode: "cors",
+      body: { login: login, password: password },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    let status = response.status;
+    console.log("Data received, status", status);
+    return status;
+  } catch (error) {
+    console.error("Error loading data for", handleUrl, "Error:", error);
+    return null;
+  }
+}
+
+async function register(login, password) {
+  const handleUrl = `/user/register`;
+  console.log(handleUrl);
+  try {
+    let response = await fetch(backendUrl + handleUrl, {
+      method: "post",
+      mode: "cors",
+      body: { login: login, password: password },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    let status = response.status;
+    console.log("Data received, status", status);
+    return status;
+  } catch (error) {
+    console.error("Error loading data for", handleUrl, "Error:", error);
+    return null;
+  }
+}
+
+export { recipeAll, recipeId, login, register };

@@ -60,8 +60,8 @@ input {
 
 button {
   border-radius: 5px;
-  min-width: 60px;
-  max-width: 150px;
+  min-width: 80px;
+  max-width: 200px;
   height: 40px;
   background-color: #4f86f7;
   color: white;
@@ -190,6 +190,7 @@ button:disabled {
 
 .app-name-text {
   font-size: 36px;
+  color: #4f86f7;
 }
 
 .unimportant-text {
@@ -241,6 +242,14 @@ button:disabled {
 
 .search-container {
   width: 100%;
+}
+
+.action-container {
+  width: 100%;
+}
+
+.username {
+  color: #4f86f7;
 }
 
 .buttons-bar {

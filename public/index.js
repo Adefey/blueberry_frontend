@@ -1,4 +1,4 @@
-import { recipeAll, recipeId } from "./api.js";
+import { recipeAll, recipeId, login, register } from "./api.js";
 import { setToTimeString } from "./sec_to_date.js";
 
 if ("serviceWorker" in navigator) {
@@ -18,9 +18,11 @@ const root = document.getElementById("root");
 
 // Templates
 
+const actionContainerTmpl = require("../templates/action-container.hbs");
 const searchContainerTmpl = require("../templates/search-container.hbs");
 const recipeListTmlp = require("../templates/recipe-list.hbs");
 const recipeTmpl = require("../templates/recipe.hbs");
+const loginFormTmpl = require("../templates/login-form.hbs");
 
 // App config
 
@@ -34,12 +36,15 @@ const state = {
   currentPage: 0,
   totalPages: 0,
   searchQuery: "",
+  loggedId: false,
+  username: "Guest",
 };
 
 // App main windows render
 
 function renderMain() {
   root.innerHTML = "";
+  renderActionBar();
   renderSearch();
   renderList();
 }
@@ -50,11 +55,37 @@ function renderRecipe(recipeData) {
     console.error("Cannot render recipe with zero steps");
     return;
   }
-
   renderStep(recipeData.steps, 0);
 }
 
+function renderAddRecipe() {
+  root.innerHTML = "";
+}
+
+function renderLoginForm() {
+  root.innerHTML = "";
+}
+
 // Per component render functions
+
+function renderActionBar() {
+  root.insertAdjacentHTML(
+    "beforeend",
+    actionContainerTmpl({ username: state.username }),
+  );
+
+  // Callback for buttons
+  const loginButton = root.querySelector(".button-login");
+  loginButton.addEventListener("click", loginButtonCallback());
+
+  const registerButton = root.querySelector(".button-register");
+  registerButton.addEventListener("click", registerButtonCallback());
+
+  const addButton = root.querySelector(".button-add");
+  addButton.addEventListener("click", addButtonCallback());
+
+  updateActionBar();
+}
 
 function renderSearch() {
   root.insertAdjacentHTML(
@@ -240,6 +271,37 @@ function exitButtonCallback(timer) {
     clearInterval(timer);
     renderMain();
   };
+}
+
+function loginButtonCallback() {
+  return (e) => {};
+}
+
+function registerButtonCallback() {
+  return (e) => {};
+}
+
+function addButtonCallback() {
+  return (e) => {};
+}
+
+function updateActionBar() {
+  const loginButton = root.querySelector(".button-login");
+  const registerButton = root.querySelector(".button-register");
+  const addButton = root.querySelector(".button-add");
+  const userLabel = root.querySelector(".username");
+
+  if (state.loggedId) {
+    loginButton.disabled = true;
+    registerButton.disabled = true;
+    addButton.disabled = false;
+    userLabel.innerHTML = state.username;
+  } else {
+    loginButton.disabled = false;
+    registerButton.disabled = false;
+    addButton.disabled = true;
+    userLabel.innerHTML = "Guest";
+  }
 }
 
 //Entry point
