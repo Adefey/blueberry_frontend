@@ -37,7 +37,7 @@ const state = {
   totalPages: 0,
   searchQuery: "",
   loggedId: false,
-  username: "Guest",
+  username: "Anonymous User",
 };
 
 // App main windows render
@@ -358,6 +358,7 @@ function registerCallback(userlogin, userpassword, textInfo) {
       if (status === 200) {
         state.loggedId = true;
         state.username = userlogin.value;
+        document.cookie;
         renderMain();
       } else {
         console.log("Register fail");
@@ -367,7 +368,13 @@ function registerCallback(userlogin, userpassword, textInfo) {
   };
 }
 
-function checkCookieLogin() {}
+function checkCookieLogin() {
+  console.log("cookies:", document.cookie);
+  // if (document.cookie["blueberry-user"]){
+  //   state.loggedId = True;
+  //   state.username = document.cookie["blueberry-user"];
+  // }
+}
 
 //Entry point
 renderMain();
