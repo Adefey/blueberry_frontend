@@ -1404,16 +1404,16 @@
               const r = "/user/login";
               console.log(r);
               try {
-                let o = await fetch(e + r, {
-                  method: "post",
-                  mode: "cors",
-                  credentials: "include",
-                  body: JSON.stringify({ login: t, password: n }),
-                  headers: { "Content-Type": "application/json" },
-                });
-                console.log(o.headers);
-                let a = o.status;
-                return console.log("Data received, status", a), a;
+                let o = (
+                  await fetch(e + r, {
+                    method: "post",
+                    mode: "cors",
+                    credentials: "include",
+                    body: JSON.stringify({ login: t, password: n }),
+                    headers: { "Content-Type": "application/json" },
+                  })
+                ).status;
+                return console.log("Data received, status", o), o;
               } catch (e) {
                 return (
                   console.error("Error loading data for", r, "Error:", e), null

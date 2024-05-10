@@ -66,7 +66,6 @@ async function login(login, password) {
         "Content-Type": "application/json",
       },
     });
-    console.log(response.headers);
     let status = response.status;
     console.log("Data received, status", status);
     return status;
