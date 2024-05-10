@@ -58,7 +58,7 @@ async function login(login, password) {
     let response = await fetch(backendUrl + handleUrl, {
       method: "post",
       mode: "cors",
-      body: { login: login, password: password },
+      body: JSON.stringify({ login: login, password: password }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -80,7 +80,7 @@ async function register(login, password) {
     let response = await fetch(backendUrl + handleUrl, {
       method: "post",
       mode: "cors",
-      body: { login: login, password: password },
+      body: JSON.stringify({ login: login, password: password }),
       headers: {
         "Content-Type": "application/json",
       },

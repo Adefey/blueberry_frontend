@@ -22,7 +22,7 @@ const actionContainerTmpl = require("../templates/action-container.hbs");
 const searchContainerTmpl = require("../templates/search-container.hbs");
 const recipeListTmlp = require("../templates/recipe-list.hbs");
 const recipeTmpl = require("../templates/recipe.hbs");
-const loginFormTmpl = require("../templates/login-form.hbs");
+const credentialsFormTmpl = require("../templates/credentials-container.hbs");
 
 // App config
 
@@ -64,6 +64,46 @@ function renderAddRecipe() {
 
 function renderLoginForm() {
   root.innerHTML = "";
+  root.insertAdjacentHTML(
+    "beforeend",
+    credentialsFormTmpl({
+      action: "Login",
+      info: "Log into your account to add recipes",
+      action_button_text: "login",
+    }),
+  );
+
+  let inputLogin = root.querySelector(".login");
+  let inputPassword = root.querySelector(".password");
+  let textInfo = root.querySelector(".text-info");
+
+  let submitButton = root.querySelector(".button-submit");
+  submitButton.addEventListener(
+    "click",
+    loginCallback(inputLogin.value, inputPassword.value, textInfo),
+  );
+}
+
+function renderRegisterForm() {
+  root.innerHTML = "";
+  root.insertAdjacentHTML(
+    "beforeend",
+    credentialsFormTmpl({
+      action: "Register",
+      info: "Create an account to be able to add recipes",
+      action_button_text: "register",
+    }),
+  );
+
+  let inputLogin = root.querySelector(".login");
+  let inputPassword = root.querySelector(".password");
+  let textInfo = root.querySelector(".text-info");
+
+  let submitButton = root.querySelector(".button-submit");
+  submitButton.addEventListener(
+    "click",
+    registerCallback(inputLogin.value, inputPassword.value, textInfo),
+  );
 }
 
 // Per component render functions
@@ -76,13 +116,13 @@ function renderActionBar() {
 
   // Callback for buttons
   const loginButton = root.querySelector(".button-login");
-  loginButton.addEventListener("click", loginButtonCallback());
+  loginButton.addEventListener("click", renderLoginForm);
 
   const registerButton = root.querySelector(".button-register");
-  registerButton.addEventListener("click", registerButtonCallback());
+  registerButton.addEventListener("click", renderRegisterForm);
 
   const addButton = root.querySelector(".button-add");
-  addButton.addEventListener("click", addButtonCallback());
+  addButton.addEventListener("click", addButtonCallback);
 
   updateActionBar();
 }
@@ -273,14 +313,6 @@ function exitButtonCallback(timer) {
   };
 }
 
-function loginButtonCallback() {
-  return (e) => {};
-}
-
-function registerButtonCallback() {
-  return (e) => {};
-}
-
 function addButtonCallback() {
   return (e) => {};
 }
@@ -302,6 +334,36 @@ function updateActionBar() {
     addButton.disabled = true;
     userLabel.innerHTML = "Guest";
   }
+}
+
+function loginCallback(userlogin, userpassword, textInfo) {
+  return (e) => {
+    login(userlogin, userpassword).then((status) => {
+      if (status === 200) {
+        state.loggedId = true;
+        state.username = userlogin;
+        renderMain();
+      } else {
+        console.log("Login fail");
+        textInfo.innerHTML = "Login data is incorrect!";
+      }
+    });
+  };
+}
+
+function registerCallback(userlogin, userpassword, textInfo) {
+  return (e) => {
+    register(userlogin, userpassword).then((status) => {
+      if (status === 200) {
+        state.loggedId = true;
+        state.username = userlogin;
+        renderMain();
+      } else {
+        console.log("Register fail");
+        textInfo.innerHTML = "Register data is incorrect or login is taken!";
+      }
+    });
+  };
 }
 
 //Entry point

@@ -26,7 +26,7 @@
                   if (Object.prototype.hasOwnProperty.call(e, t)) return e[t];
                 };
             return (
-              '<div class="action-container flex-row">\n  <button type="button" class="button-login">Log in</button>\n  <button type="button" class="button-register">Register</button>\n  <button type="button" class="button-add">Add recipe</button>\n  <div class="username">' +
+              '<div class="action-container flex-row">\n  <button type="button" class="button-login">Log in</button>\n  <button type="button" class="button-register">Register</button>\n  <button type="button" class="button-add">Add recipe</button>\n  <div class="accent-text username">' +
               e.escapeExpression(
                 "function" ==
                   typeof (a =
@@ -39,8 +39,8 @@
                       hash: {},
                       data: o,
                       loc: {
-                        start: { line: 5, column: 24 },
-                        end: { line: 5, column: 36 },
+                        start: { line: 5, column: 36 },
+                        end: { line: 5, column: 48 },
                       },
                     })
                   : a,
@@ -51,10 +51,82 @@
           useData: !0,
         });
       },
-      29: (e) => {
-        e.exports = function () {
-          return "";
-        };
+      995: (e, t, n) => {
+        var r = n(633);
+        e.exports = (r.default || r).template({
+          compiler: [8, ">= 4.3.0"],
+          main: function (e, t, n, r, o) {
+            var a,
+              l = null != t ? t : e.nullContext || {},
+              i = e.hooks.helperMissing,
+              s = "function",
+              u = e.escapeExpression,
+              c =
+                e.lookupProperty ||
+                function (e, t) {
+                  if (Object.prototype.hasOwnProperty.call(e, t)) return e[t];
+                };
+            return (
+              '<div class="credentials-container flex-column">\n  <div class="accent-text">' +
+              u(
+                typeof (a =
+                  null !=
+                  (a = c(n, "action") || (null != t ? c(t, "action") : t))
+                    ? a
+                    : i) === s
+                  ? a.call(l, {
+                      name: "action",
+                      hash: {},
+                      data: o,
+                      loc: {
+                        start: { line: 2, column: 27 },
+                        end: { line: 2, column: 37 },
+                      },
+                    })
+                  : a,
+              ) +
+              '</div>\n  <div class="text-info">' +
+              u(
+                typeof (a =
+                  null != (a = c(n, "info") || (null != t ? c(t, "info") : t))
+                    ? a
+                    : i) === s
+                  ? a.call(l, {
+                      name: "info",
+                      hash: {},
+                      data: o,
+                      loc: {
+                        start: { line: 3, column: 25 },
+                        end: { line: 3, column: 33 },
+                      },
+                    })
+                  : a,
+              ) +
+              '</div>\n  <input type="text" class="login" placeholder="Login..." />\n  <input type="password" class="password" placeholder="Password..." />\n  <button type="button" class="button-submit">' +
+              u(
+                typeof (a =
+                  null !=
+                  (a =
+                    c(n, "action_button_text") ||
+                    (null != t ? c(t, "action_button_text") : t))
+                    ? a
+                    : i) === s
+                  ? a.call(l, {
+                      name: "action_button_text",
+                      hash: {},
+                      data: o,
+                      loc: {
+                        start: { line: 6, column: 46 },
+                        end: { line: 6, column: 68 },
+                      },
+                    })
+                  : a,
+              ) +
+              "</button>\n</div>"
+            );
+          },
+          useData: !0,
+        });
       },
       528: (e, t, n) => {
         var r = n(633);
@@ -1252,39 +1324,38 @@
       o = n(53),
       a = n(528),
       l = n(781),
-      i = (n(29), { RECIPES_PER_PAGE: 10 }),
-      s = {
+      i = n(995),
+      s = { RECIPES_PER_PAGE: 10 },
+      u = {
         currentPage: 0,
         totalPages: 0,
         searchQuery: "",
         loggedId: !1,
         username: "Guest",
       };
-    function u() {
+    function c() {
       (t.innerHTML = ""),
-        t.insertAdjacentHTML("beforeend", r({ username: s.username })),
-        t.querySelector(".button-login").addEventListener("click", (e) => {}),
-        t
-          .querySelector(".button-register")
-          .addEventListener("click", (e) => {}),
-        t.querySelector(".button-add").addEventListener("click", (e) => {}),
+        t.insertAdjacentHTML("beforeend", r({ username: u.username })),
+        t.querySelector(".button-login").addEventListener("click", p),
+        t.querySelector(".button-register").addEventListener("click", f),
+        t.querySelector(".button-add").addEventListener("click", y),
         (function () {
           const e = t.querySelector(".button-login"),
             n = t.querySelector(".button-register"),
             r = t.querySelector(".button-add"),
             o = t.querySelector(".username");
-          s.loggedId
+          u.loggedId
             ? ((e.disabled = !0),
               (n.disabled = !0),
               (r.disabled = !1),
-              (o.innerHTML = s.username))
+              (o.innerHTML = u.username))
             : ((e.disabled = !1),
               (n.disabled = !1),
               (r.disabled = !0),
               (o.innerHTML = "Guest"));
         })(),
         (function () {
-          t.insertAdjacentHTML("beforeend", o({ value: s.searchQuery }));
+          t.insertAdjacentHTML("beforeend", o({ value: u.searchQuery }));
           const e = t.querySelector(".searchbar");
           var n;
           e.addEventListener(
@@ -1293,26 +1364,117 @@
             (e) => {
               let t = n.value;
               console.log(`Running search callback, query: ${t}`),
-                (s.searchQuery = t),
-                u();
+                (u.searchQuery = t),
+                c();
             }),
           ),
             t
               .querySelector(".button-prev-list")
-              .addEventListener("click", p(s.currentPage, -1)),
+              .addEventListener("click", v(u.currentPage, -1)),
             t
               .querySelector(".button-next-list")
-              .addEventListener("click", p(s.currentPage, 1));
+              .addEventListener("click", v(u.currentPage, 1));
         })(),
-        d();
+        h();
     }
-    function c(e) {
+    function d(e) {
       (t.innerHTML = ""),
         0 !== e.steps.length
-          ? h(e.steps, 0)
+          ? m(e.steps, 0)
           : console.error("Cannot render recipe with zero steps");
     }
-    function d() {
+    function p() {
+      (t.innerHTML = ""),
+        t.insertAdjacentHTML(
+          "beforeend",
+          i({
+            action: "Login",
+            info: "Log into your account to add recipes",
+            action_button_text: "login",
+          }),
+        );
+      let n = t.querySelector(".login"),
+        r = t.querySelector(".password"),
+        o = t.querySelector(".text-info");
+      t.querySelector(".button-submit").addEventListener(
+        "click",
+        (function (t, n, r) {
+          return (o) => {
+            (async function (t, n) {
+              const r = "/user/login";
+              console.log(r);
+              try {
+                let o = (
+                  await fetch(e + r, {
+                    method: "post",
+                    mode: "cors",
+                    body: JSON.stringify({ login: t, password: n }),
+                    headers: { "Content-Type": "application/json" },
+                  })
+                ).status;
+                return console.log("Data received, status", o), o;
+              } catch (e) {
+                return (
+                  console.error("Error loading data for", r, "Error:", e), null
+                );
+              }
+            })(t, n).then((e) => {
+              200 === e
+                ? ((u.loggedId = !0), (u.username = t), c())
+                : (console.log("Login fail"),
+                  (r.innerHTML = "Login data is incorrect!"));
+            });
+          };
+        })(n.value, r.value, o),
+      );
+    }
+    function f() {
+      (t.innerHTML = ""),
+        t.insertAdjacentHTML(
+          "beforeend",
+          i({
+            action: "Register",
+            info: "Create an account to be able to add recipes",
+            action_button_text: "register",
+          }),
+        );
+      let n = t.querySelector(".login"),
+        r = t.querySelector(".password"),
+        o = t.querySelector(".text-info");
+      t.querySelector(".button-submit").addEventListener(
+        "click",
+        (function (t, n, r) {
+          return (o) => {
+            (async function (t, n) {
+              const r = "/user/register";
+              console.log(r);
+              try {
+                let o = (
+                  await fetch(e + r, {
+                    method: "post",
+                    mode: "cors",
+                    body: JSON.stringify({ login: t, password: n }),
+                    headers: { "Content-Type": "application/json" },
+                  })
+                ).status;
+                return console.log("Data received, status", o), o;
+              } catch (e) {
+                return (
+                  console.error("Error loading data for", r, "Error:", e), null
+                );
+              }
+            })(t, n).then((e) => {
+              200 === e
+                ? ((u.loggedId = !0), (u.username = t), c())
+                : (console.log("Register fail"),
+                  (r.innerHTML =
+                    "Register data is incorrect or login is taken!"));
+            });
+          };
+        })(n.value, r.value, o),
+      );
+    }
+    function h() {
       (async function (t = 20, n = 0, r = null) {
         if (0 === t) return { recipes: [] };
         let o = `/recipe/all?count=${t}&offset=${n}`;
@@ -1328,22 +1490,22 @@
         } catch (e) {
           return console.error("Error loading data for", o, "Error:", e), null;
         }
-      })(i.RECIPES_PER_PAGE, s.currentPage * i.RECIPES_PER_PAGE, s.searchQuery)
-        .then(f)
+      })(s.RECIPES_PER_PAGE, u.currentPage * s.RECIPES_PER_PAGE, u.searchQuery)
+        .then(g)
         .catch((e) => {
           console.error(`Something went wrong fetching recipes, ${e}`);
         });
     }
-    function p(e, t) {
+    function v(e, t) {
       return (n) => {
         console.log(`Running pagination, currentPage: ${e} stride ${t}`),
-          e + t >= 0 && e + t < s.totalPages && (e += t),
-          d();
+          e + t >= 0 && e + t < u.totalPages && (e += t),
+          h();
       };
     }
-    function f(n) {
+    function g(n) {
       console.log(`Running recipe list received callback, total: ${n.total}`),
-        (s.totalPages = Math.ceil(n.total / i.RECIPES_PER_PAGE)),
+        (u.totalPages = Math.ceil(n.total / s.RECIPES_PER_PAGE)),
         t.insertAdjacentHTML("beforeend", a(n)),
         t.querySelectorAll(".recipe-container").forEach((t) => {
           t.addEventListener(
@@ -1370,7 +1532,7 @@
                     );
                   }
                 })(r)
-                  .then(c)
+                  .then(d)
                   .catch((e) => {
                     console.error(
                       `Something went wrong fetching recipe #${r}, ${e}`,
@@ -1382,12 +1544,12 @@
         }),
         (function () {
           const e = t.querySelector(".button-prev-list");
-          0 === s.currentPage && (e.disabled = !0);
+          0 === u.currentPage && (e.disabled = !0);
           const n = t.querySelector(".button-next-list");
-          s.currentPage === s.totalPages - 1 && (n.disabled = !0);
+          u.currentPage === u.totalPages - 1 && (n.disabled = !0);
         })();
     }
-    function h(e, n) {
+    function m(e, n) {
       console.log(`Running step ${n} rendering`),
         (t.innerHTML = ""),
         (t.innerHTML = l(e[n]));
@@ -1409,7 +1571,7 @@
                     `Timer: ${t}:${n}:${r}`
                   );
                 })(n)),
-                0 === n && r != e.length - 1 && h(e, r + 1),
+                0 === n && r != e.length - 1 && m(e, r + 1),
                 --n;
             };
           })(e, r, o, n),
@@ -1423,7 +1585,7 @@
       );
       const i = t.querySelector(".button-previous");
       0 === n && (i.disabled = !0),
-        i.addEventListener("click", v(-1, e, n, a)),
+        i.addEventListener("click", b(-1, e, n, a)),
         t.querySelector(".button-pause").addEventListener(
           "click",
           (function (e, t) {
@@ -1436,25 +1598,28 @@
         );
       const s = t.querySelector(".button-next");
       n === e.length - 1 && (s.disabled = !0),
-        s.addEventListener("click", v(1, e, n, a)),
+        s.addEventListener("click", b(1, e, n, a)),
         t.querySelector(".button-exit").addEventListener(
           "click",
           (function (e) {
             return (t) => {
               console.log("Running exit button callback"),
                 clearInterval(e),
-                u();
+                c();
             };
           })(a),
         );
     }
-    function v(e, t, n, r) {
+    function b(e, t, n, r) {
       return (o) => {
         console.log(`Running step change button callback for step: ${n}`),
           clearInterval(r),
-          h(t, n + e);
+          m(t, n + e);
       };
     }
-    u();
+    function y() {
+      return (e) => {};
+    }
+    c();
   })();
 })();
