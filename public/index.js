@@ -80,7 +80,7 @@ function renderLoginForm() {
   let submitButton = root.querySelector(".button-submit");
   submitButton.addEventListener(
     "click",
-    loginCallback(inputLogin.value, inputPassword.value, textInfo),
+    loginCallback(inputLogin, inputPassword, textInfo),
   );
 }
 
@@ -102,7 +102,7 @@ function renderRegisterForm() {
   let submitButton = root.querySelector(".button-submit");
   submitButton.addEventListener(
     "click",
-    registerCallback(inputLogin.value, inputPassword.value, textInfo),
+    registerCallback(inputLogin, inputPassword, textInfo),
   );
 }
 
@@ -338,10 +338,10 @@ function updateActionBar() {
 
 function loginCallback(userlogin, userpassword, textInfo) {
   return (e) => {
-    login(userlogin, userpassword).then((status) => {
+    login(userlogin.value, userpassword.value).then((status) => {
       if (status === 200) {
         state.loggedId = true;
-        state.username = userlogin;
+        state.username = userlogin.value;
         renderMain();
       } else {
         console.log("Login fail");
@@ -353,10 +353,10 @@ function loginCallback(userlogin, userpassword, textInfo) {
 
 function registerCallback(userlogin, userpassword, textInfo) {
   return (e) => {
-    register(userlogin, userpassword).then((status) => {
+    register(userlogin.value, userpassword.value).then((status) => {
       if (status === 200) {
         state.loggedId = true;
-        state.username = userlogin;
+        state.username = userlogin.value;
         renderMain();
       } else {
         console.log("Register fail");
