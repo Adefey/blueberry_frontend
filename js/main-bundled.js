@@ -1404,18 +1404,16 @@
               const r = "/user/login";
               console.log(r);
               try {
-                let o = (
-                  await fetch(e + r, {
-                    method: "post",
-                    mode: "cors",
-                    body: JSON.stringify({ login: t, password: n }),
-                    headers: {
-                      "Content-Type": "application/json",
-                      "Access-Control-Allow-Headers": "*",
-                    },
-                  })
-                ).status;
-                return console.log("Data received, status", o), o;
+                let o = await fetch(e + r, {
+                  method: "post",
+                  mode: "cors",
+                  credentials: "include",
+                  body: JSON.stringify({ login: t, password: n }),
+                  headers: { "Content-Type": "application/json" },
+                });
+                console.log(o.headers);
+                let a = o.status;
+                return console.log("Data received, status", a), a;
               } catch (e) {
                 return (
                   console.error("Error loading data for", r, "Error:", e), null
@@ -1456,11 +1454,9 @@
                   await fetch(e + r, {
                     method: "post",
                     mode: "cors",
+                    credentials: "include",
                     body: JSON.stringify({ login: t, password: n }),
-                    headers: {
-                      "Content-Type": "application/json",
-                      "Access-Control-Allow-Headers": "Cookie, Set-Cookie",
-                    },
+                    headers: { "Content-Type": "application/json" },
                   })
                 ).status;
                 return console.log("Data received, status", o), o;
@@ -1489,10 +1485,8 @@
           let t = await fetch(e + o, {
               method: "get",
               mode: "cors",
-              headers: {
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Headers": "*",
-              },
+              credentials: "include",
+              headers: { "Content-Type": "application/json" },
             }),
             n = await t.json();
           return console.log("Data received", n), n;
@@ -1530,10 +1524,8 @@
                     let t = await fetch(e + n, {
                         method: "get",
                         mode: "cors",
-                        headers: {
-                          "Content-Type": "application/json",
-                          "Access-Control-Allow-Headers": "*",
-                        },
+                        credentials: "include",
+                        headers: { "Content-Type": "application/json" },
                       }),
                       r = await t.json();
                     return console.log("Data received", r), r;
