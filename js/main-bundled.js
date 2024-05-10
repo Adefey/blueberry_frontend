@@ -1408,11 +1408,10 @@
                   await fetch(e + r, {
                     method: "post",
                     mode: "cors",
-                    credentials: "include",
                     body: JSON.stringify({ login: t, password: n }),
                     headers: {
                       "Content-Type": "application/json",
-                      "Access-Control-Allow-Headers": "Cookie, Set-Cookie",
+                      "Access-Control-Allow-Headers": "*",
                     },
                   })
                 ).status;
@@ -1457,7 +1456,6 @@
                   await fetch(e + r, {
                     method: "post",
                     mode: "cors",
-                    credentials: "include",
                     body: JSON.stringify({ login: t, password: n }),
                     headers: {
                       "Content-Type": "application/json",
@@ -1491,10 +1489,9 @@
           let t = await fetch(e + o, {
               method: "get",
               mode: "cors",
-              credentials: "include",
               headers: {
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Headers": "Cookie, Set-Cookie",
+                "Access-Control-Allow-Headers": "*",
               },
             }),
             n = await t.json();
@@ -1533,10 +1530,9 @@
                     let t = await fetch(e + n, {
                         method: "get",
                         mode: "cors",
-                        credentials: "include",
                         headers: {
                           "Content-Type": "application/json",
-                          "Access-Control-Allow-Headers": "Cookie, Set-Cookie",
+                          "Access-Control-Allow-Headers": "*",
                         },
                       }),
                       r = await t.json();

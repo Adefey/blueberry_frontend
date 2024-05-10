@@ -44,6 +44,7 @@ const state = {
 
 function renderMain() {
   root.innerHTML = "";
+  checkCookieLogin();
   renderActionBar();
   renderSearch();
   renderList();
@@ -365,6 +366,8 @@ function registerCallback(userlogin, userpassword, textInfo) {
     });
   };
 }
+
+function checkCookieLogin() {}
 
 //Entry point
 renderMain();
