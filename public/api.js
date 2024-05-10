@@ -15,9 +15,10 @@ async function recipeAll(count = 20, offset = 0, search_query = null) {
     let response = await fetch(backendUrl + handleUrl, {
       method: "get",
       mode: "cors",
-      credentials: "include", 
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Headers": "Cookie, Set-Cookie",
       },
     });
 
@@ -38,9 +39,10 @@ async function recipeId(id) {
     let response = await fetch(backendUrl + handleUrl, {
       method: "get",
       mode: "cors",
-      credentials: "include", 
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Headers": "Cookie, Set-Cookie",
       },
     });
 
@@ -60,10 +62,11 @@ async function login(login, password) {
     let response = await fetch(backendUrl + handleUrl, {
       method: "post",
       mode: "cors",
-      credentials: "include", 
+      credentials: "include",
       body: JSON.stringify({ login: login, password: password }),
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Headers": "Cookie, Set-Cookie",
       },
     });
 
@@ -83,10 +86,11 @@ async function register(login, password) {
     let response = await fetch(backendUrl + handleUrl, {
       method: "post",
       mode: "cors",
-      credentials: "include", 
+      credentials: "include",
       body: JSON.stringify({ login: login, password: password }),
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Headers": "Cookie, Set-Cookie",
       },
     });
 
