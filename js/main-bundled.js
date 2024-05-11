@@ -1411,10 +1411,9 @@
         m();
     }
     function f(e) {
-      (t.innerHTML = ""),
-        0 !== e.steps.length
-          ? _(e.steps, 0)
-          : console.error("Cannot render recipe with zero steps");
+      if (((t.innerHTML = ""), 0 === e.steps.length))
+        return console.error("Cannot render recipe with zero steps"), void p();
+      _(e.steps, 0);
     }
     function h() {
       (t.innerHTML = ""),
@@ -1472,10 +1471,11 @@
               }
             })(r, o, a, l, i, s, c)
               .then((e) => {
-                200 === e && p(),
-                  console.log("Status", e),
-                  (t.querySelector(".add-info").textContent =
-                    "Error adding the recipe, check your input!");
+                200 === e
+                  ? p()
+                  : (console.log("Status", e),
+                    (t.querySelector(".add-info").textContent =
+                      "Error adding the recipe, check your input!"));
               })
               .catch((e) => {
                 console.log("Error adding recipe", e);

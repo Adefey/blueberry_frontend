@@ -56,6 +56,7 @@ function renderRecipe(recipeData) {
   root.innerHTML = "";
   if (recipeData.steps.length === 0) {
     console.error("Cannot render recipe with zero steps");
+    renderMain();
     return;
   }
   renderStep(recipeData.steps, 0);
@@ -457,10 +458,11 @@ function addRecipeCallback() {
       .then((status) => {
         if (status === 200) {
           renderMain();
+        } else {
+          console.log("Status", status);
+          const infoDiv = root.querySelector(".add-info");
+          infoDiv.textContent = "Error adding the recipe, check your input!";
         }
-        console.log("Status", status);
-        const infoDiv = root.querySelector(".add-info");
-        infoDiv.textContent = "Error adding the recipe, check your input!";
       })
       .catch((error) => {
         console.log("Error adding recipe", error);
