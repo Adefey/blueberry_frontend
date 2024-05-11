@@ -375,7 +375,7 @@ function checkCookieLogin() {
   console.log("Parsed cookie", parsedCookie);
   if (parsedCookie["blueberry-user"]) {
     console.log("Keep logged in, user:", parsedCookie["blueberry-user"]);
-    state.loggedId = True;
+    state.loggedId = true;
     state.username = document.cookie["blueberry-user"];
   } else {
     console.log("Not logged in");
