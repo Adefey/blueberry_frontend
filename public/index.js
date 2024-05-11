@@ -419,7 +419,12 @@ function addRecipeCallback() {
       .map((element) => {
         return element.value;
       });
-    console.log("Collected step data", stepNames, stepDescriptions, stepImageUrls);
+    console.log(
+      "Collected step data",
+      stepNames,
+      stepDescriptions,
+      stepImageUrls,
+    );
   };
 }
 
