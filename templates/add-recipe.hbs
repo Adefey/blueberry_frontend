@@ -1,0 +1,30 @@
+<div class="add-recipe flex-column">
+  <div class="accent-text">Add a new recipe</div>
+  <div class="text-info">Write a name and a description for your recipe, also
+    you may attach a picture</div>
+  <input type="text" class="" placeholder="Name..." />
+  <input type="text" class="" placeholder="Description..." />
+  <div class="text-info">Write the steps for the recipe (JSON)</div>
+  <input
+    type="textarea"
+    cols="60"
+    rows="10"
+    class=""
+    placeholder='{
+      "caption": "Step one",
+      "description": "Step description",
+      "image_url": "https://adefe.xyz/avatar.png",
+      "duration": 0
+    },
+    {
+      "caption": "Step two",
+      "description": "Step description",
+      "image_url": "https://adefe.xyz/avatar.png",
+      "duration": 0
+    }'
+  />
+  <button
+    type="button"
+    class="button-add-recipe"
+  >{{action_button_text}}</button>
+</div>

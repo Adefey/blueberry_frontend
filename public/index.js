@@ -23,6 +23,7 @@ const searchContainerTmpl = require("../templates/search-container.hbs");
 const recipeListTmlp = require("../templates/recipe-list.hbs");
 const recipeTmpl = require("../templates/recipe.hbs");
 const credentialsFormTmpl = require("../templates/credentials-container.hbs");
+const addRecipeTmpl = require("../templates/add-recipe.hbs");
 
 // App config
 
@@ -61,6 +62,7 @@ function renderRecipe(recipeData) {
 
 function renderAddRecipe() {
   root.innerHTML = "";
+  root.insertAdjacentHTML("beforeend", addRecipeTmpl());
 }
 
 function renderLoginForm() {
