@@ -56,7 +56,7 @@
         e.exports = (r.default || r).template({
           compiler: [8, ">= 4.3.0"],
           main: function (e, t, n, r, o) {
-            return '<div class="flex-column">\n  <div class="text-info">Write a name, description and provire a picture for the\n    step</div>\n  <div class="flex-row">\n    <input type="text" class="step-name" placeholder="Name... (string)" />\n    <input type="text" class="step-description" placeholder="Description... (string)" />\n    <input\n      type="text"\n      class="step-duration"\n      placeholder="Duration in seconds... (integer)"\n    />\n    <input type="text" class="step-image-url" placeholder="Image url... (url)" />\n  </div>\n</div>';
+            return '<div class="flex-column">\n  <div class="text-info">Write a name, description and provire a picture for the\n    step</div>\n  <div class="flex-row">\n    <input type="text" class="step-name" placeholder="Name... (string)" />\n    <input\n      type="text"\n      class="step-description"\n      placeholder="Description... (string)"\n    />\n    <input\n      type="text"\n      class="step-duration"\n      placeholder="Duration in seconds... (integer)"\n    />\n    <input\n      type="text"\n      class="step-image-url"\n      placeholder="Image url... (url)"\n    />\n  </div>\n</div>';
           },
           useData: !0,
         });
@@ -66,7 +66,7 @@
         e.exports = (r.default || r).template({
           compiler: [8, ">= 4.3.0"],
           main: function (e, t, n, r, o) {
-            return '<div class="add-recipe flex-column">\n  <div class="accent-text">Add a new recipe</div>\n  <div class="text-info">Write a name and a description for your recipe, also\n    you may attach a picture</div>\n  <input type="text" class="recipe-name" placeholder="Name... (string)" />\n  <input type="text" class="recipe-description" placeholder="Description... (string)" />\n  <input type="text" class="recipe-image-url" placeholder="Image url... (url)" />\n  <div class="text-info">Write info for each step</div>\n  <div class="recipe-step-storage"></div>\n  <button type="button" class="button-add-step">add step</button>\n  <div class="add-info"></div>\n  <button type="button" class="button-add-recipe">add this recipe</button>\n</div>';
+            return '<div class="add-recipe flex-column">\n  <div class="accent-text">Add a new recipe</div>\n  <div class="text-info">Write a name and a description for your recipe, also\n    you may attach a picture</div>\n  <input type="text" class="recipe-name" placeholder="Name... (string)" />\n  <input\n    type="text"\n    class="recipe-description"\n    placeholder="Description... (string)"\n  />\n  <input\n    type="text"\n    class="recipe-image-url"\n    placeholder="Image url... (url)"\n  />\n  <div class="text-info">Write info for each step</div>\n  <div class="recipe-step-storage"></div>\n  <button type="button" class="button-add-step">add step</button>\n  <div class="add-info"></div>\n  <button type="button" class="button-add-recipe">add this recipe</button>\n</div>';
           },
           useData: !0,
         });
@@ -1385,10 +1385,7 @@
               (n.disabled = !0),
               (r.disabled = !1),
               (o.innerHTML = d.username))
-            : ((e.disabled = !1),
-              (n.disabled = !1),
-              (r.disabled = !0),
-              (o.innerHTML = "Guest"));
+            : ((e.disabled = !1), (n.disabled = !1), (r.disabled = !0));
         })(),
         (function () {
           t.insertAdjacentHTML("beforeend", o({ value: d.searchQuery }));
@@ -1478,7 +1475,7 @@
                 200 === e && p(),
                   console.log("Status", e),
                   t
-                    .querySelectorAll(".add-info")
+                    .querySelector(".add-info")
                     .insertAdjacentHTML(
                       "beforeend",
                       "Error adding the recipe, check your input!",
@@ -1532,7 +1529,7 @@
                 ? (console.log("Login success"), p())
                 : (console.log("Login fail"),
                   t
-                    .querySelectorAll(".auth-info")
+                    .querySelector(".auth-info")
                     .insertAdjacentHTML(
                       "beforeend",
                       "Error while logging in. Login or password are incorrect!",
@@ -1584,7 +1581,7 @@
                 ? (console.log("Register success"), p())
                 : (console.log("Register fail"),
                   t
-                    .querySelectorAll(".auth-info")
+                    .querySelector(".auth-info")
                     .insertAdjacentHTML(
                       "beforeend",
                       "Error while creating account!",
