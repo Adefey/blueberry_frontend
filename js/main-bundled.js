@@ -1474,12 +1474,8 @@
               .then((e) => {
                 200 === e && p(),
                   console.log("Status", e),
-                  t
-                    .querySelector(".add-info")
-                    .insertAdjacentHTML(
-                      "beforeend",
-                      "Error adding the recipe, check your input!",
-                    );
+                  (t.querySelector(".add-info").textContent =
+                    "Error adding the recipe, check your input!");
               })
               .catch((e) => {
                 console.log("Error adding recipe", e);
@@ -1528,12 +1524,8 @@
               200 === e
                 ? (console.log("Login success"), p())
                 : (console.log("Login fail"),
-                  t
-                    .querySelector(".auth-info")
-                    .insertAdjacentHTML(
-                      "beforeend",
-                      "Error while logging in. Login or password are incorrect!",
-                    ));
+                  (t.querySelector(".auth-info").textContent =
+                    "Error while logging in. Login or password are incorrect!"));
             });
           }),
         );
@@ -1580,12 +1572,8 @@
               200 === e
                 ? (console.log("Register success"), p())
                 : (console.log("Register fail"),
-                  t
-                    .querySelector(".auth-info")
-                    .insertAdjacentHTML(
-                      "beforeend",
-                      "Error while creating account!",
-                    ));
+                  (t.querySelector(".auth-info").textContent =
+                    "Error while creating account!"));
             });
           }),
         );
