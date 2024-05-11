@@ -56,7 +56,7 @@
         e.exports = (r.default || r).template({
           compiler: [8, ">= 4.3.0"],
           main: function (e, t, n, r, o) {
-            return '<div class="text-info">Write a name, description and provire a picture for the step</div>\n<input type="text" class="" placeholder="Name..." />\n<input type="text" class="" placeholder="Description..." />\n<input type="text" class="" placeholder="Url..." />';
+            return '<div class="text-info">Write a name, description and provire a picture for the\n  step</div>\n<input type="text" class="" placeholder="Name..." />\n<input type="text" class="" placeholder="Description..." />\n<input type="text" class="" placeholder="Url..." />';
           },
           useData: !0,
         });
@@ -77,7 +77,7 @@
                   if (Object.prototype.hasOwnProperty.call(e, t)) return e[t];
                 };
             return (
-              '<div class="add-recipe flex-column">\n  <div class="accent-text">Add a new recipe</div>\n  <div class="text-info">Write a name and a description for your recipe, also\n    you may attach a picture</div>\n  <input type="text" class="" placeholder="Name..." />\n  <input type="text" class="" placeholder="Description..." />\n  <input type="text" class="" placeholder="Url..." />\n  <div class="text-info">Write info for each step</div>\n  <div class="recipe-step-storage"></div>\n  <button\n    type="button"\n    class="button-add-step"\n  >' +
+              '<div class="add-recipe flex-column">\n  <div class="accent-text">Add a new recipe</div>\n  <div class="text-info">Write a name and a description for your recipe, also\n    you may attach a picture</div>\n  <input type="text" class="" placeholder="Name..." />\n  <input type="text" class="" placeholder="Description..." />\n  <input type="text" class="" placeholder="Url..." />\n  <div class="text-info">Write info for each step</div>\n  <div class="recipe-step-storage"></div>\n  <button type="button" class="button-add-step">' +
               c(
                 typeof (a =
                   null !=
@@ -91,8 +91,8 @@
                       hash: {},
                       data: o,
                       loc: {
-                        start: { line: 13, column: 3 },
-                        end: { line: 13, column: 25 },
+                        start: { line: 10, column: 48 },
+                        end: { line: 10, column: 70 },
                       },
                     })
                   : a,
@@ -111,8 +111,8 @@
                       hash: {},
                       data: o,
                       loc: {
-                        start: { line: 17, column: 3 },
-                        end: { line: 17, column: 25 },
+                        start: { line: 14, column: 3 },
+                        end: { line: 14, column: 25 },
                       },
                     })
                   : a,
@@ -1424,9 +1424,9 @@
               : console.log("Not logged in");
         })(),
         t.insertAdjacentHTML("beforeend", r({ username: d.username })),
-        t.querySelector(".button-login").addEventListener("click", h),
-        t.querySelector(".button-register").addEventListener("click", v),
-        t.querySelector(".button-add").addEventListener("click", x),
+        t.querySelector(".button-login").addEventListener("click", v),
+        t.querySelector(".button-register").addEventListener("click", g),
+        t.querySelector(".button-add").addEventListener("click", h),
         (function () {
           const e = t.querySelector(".button-login"),
             n = t.querySelector(".button-register"),
@@ -1458,20 +1458,28 @@
           ),
             t
               .querySelector(".button-prev-list")
-              .addEventListener("click", m(d.currentPage, -1)),
+              .addEventListener("click", b(d.currentPage, -1)),
             t
               .querySelector(".button-next-list")
-              .addEventListener("click", m(d.currentPage, 1));
+              .addEventListener("click", b(d.currentPage, 1));
         })(),
-        g();
+        m();
     }
     function f(e) {
       (t.innerHTML = ""),
         0 !== e.steps.length
-          ? y(e.steps, 0)
+          ? _(e.steps, 0)
           : console.error("Cannot render recipe with zero steps");
     }
     function h() {
+      (t.innerHTML = ""),
+        t.insertAdjacentHTML("beforeend", s()),
+        t.querySelector(".button-add-step").addEventListener("click", (e) => {
+          (stepContainer = t.querySelector(".recipe-step-storage")),
+            stepContainer.insertAdjacentHTML("beforeend", c());
+        });
+    }
+    function v() {
       (t.innerHTML = ""),
         t.insertAdjacentHTML(
           "beforeend",
@@ -1517,7 +1525,7 @@
         })(n, r, o),
       );
     }
-    function v() {
+    function g() {
       (t.innerHTML = ""),
         t.insertAdjacentHTML(
           "beforeend",
@@ -1564,7 +1572,7 @@
         })(n, r, o),
       );
     }
-    function g() {
+    function m() {
       (async function (t = 20, n = 0, r = null) {
         if (0 === t) return { recipes: [] };
         let o = `/recipe/all?count=${t}&offset=${n}`;
@@ -1582,19 +1590,19 @@
           return console.error("Error loading data for", o, "Error:", e), null;
         }
       })(u.RECIPES_PER_PAGE, d.currentPage * u.RECIPES_PER_PAGE, d.searchQuery)
-        .then(b)
+        .then(y)
         .catch((e) => {
           console.error(`Something went wrong fetching recipes, ${e}`);
         });
     }
-    function m(e, t) {
+    function b(e, t) {
       return (n) => {
         console.log(`Running pagination, currentPage: ${e} stride ${t}`),
           e + t >= 0 && e + t < d.totalPages && (e += t),
-          g();
+          m();
       };
     }
-    function b(n) {
+    function y(n) {
       console.log(`Running recipe list received callback, total: ${n.total}`),
         (d.totalPages = Math.ceil(n.total / u.RECIPES_PER_PAGE)),
         t.insertAdjacentHTML("beforeend", a(n)),
@@ -1641,7 +1649,7 @@
           d.currentPage === d.totalPages - 1 && (n.disabled = !0);
         })();
     }
-    function y(e, n) {
+    function _(e, n) {
       console.log(`Running step ${n} rendering`),
         (t.innerHTML = ""),
         (t.innerHTML = l(e[n]));
@@ -1663,7 +1671,7 @@
                     `Timer: ${t}:${n}:${r}`
                   );
                 })(n)),
-                0 === n && r != e.length - 1 && y(e, r + 1),
+                0 === n && r != e.length - 1 && _(e, r + 1),
                 --n;
             };
           })(e, r, o, n),
@@ -1677,7 +1685,7 @@
       );
       const i = t.querySelector(".button-previous");
       0 === n && (i.disabled = !0),
-        i.addEventListener("click", _(-1, e, n, a)),
+        i.addEventListener("click", x(-1, e, n, a)),
         t.querySelector(".button-pause").addEventListener(
           "click",
           (function (e, t) {
@@ -1690,7 +1698,7 @@
         );
       const s = t.querySelector(".button-next");
       n === e.length - 1 && (s.disabled = !0),
-        s.addEventListener("click", _(1, e, n, a)),
+        s.addEventListener("click", x(1, e, n, a)),
         t.querySelector(".button-exit").addEventListener(
           "click",
           (function (e) {
@@ -1702,21 +1710,11 @@
           })(a),
         );
     }
-    function _(e, t, n, r) {
+    function x(e, t, n, r) {
       return (o) => {
         console.log(`Running step change button callback for step: ${n}`),
           clearInterval(r),
-          y(t, n + e);
-      };
-    }
-    function x() {
-      return (e) => {
-        (t.innerHTML = ""),
-          t.insertAdjacentHTML("beforeend", s()),
-          t.querySelector(".button-add-step").addEventListener("click", (e) => {
-            (stepContainer = t.querySelector(".recipe-step-storage")),
-              stepContainer.insertAdjacentHTML("beforeend", c());
-          });
+          _(t, n + e);
       };
     }
     p();

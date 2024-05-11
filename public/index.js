@@ -129,7 +129,7 @@ function renderActionBar() {
   registerButton.addEventListener("click", renderRegisterForm);
 
   const addButton = root.querySelector(".button-add");
-  addButton.addEventListener("click", addButtonCallback);
+  addButton.addEventListener("click", renderAddRecipe);
 
   updateActionBar();
 }
@@ -317,12 +317,6 @@ function exitButtonCallback(timer) {
     console.log("Running exit button callback");
     clearInterval(timer);
     renderMain();
-  };
-}
-
-function addButtonCallback() {
-  return (e) => {
-    renderAddRecipe();
   };
 }
 
