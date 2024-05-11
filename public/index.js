@@ -338,7 +338,6 @@ function updateActionBar() {
     loginButton.disabled = false;
     registerButton.disabled = false;
     addButton.disabled = true;
-    userLabel.innerHTML = "Guest";
   }
 }
 
@@ -350,7 +349,7 @@ function loginCallback(userlogin, userpassword, textInfo) {
         renderMain();
       } else {
         console.log("Login fail");
-        const infoDiv = root.querySelectorAll(".auth-info");
+        const infoDiv = root.querySelector(".auth-info");
         infoDiv.insertAdjacentHTML(
           "beforeend",
           "Error while logging in. Login or password are incorrect!",
@@ -368,7 +367,7 @@ function registerCallback(userlogin, userpassword) {
         renderMain();
       } else {
         console.log("Register fail");
-        const infoDiv = root.querySelectorAll(".auth-info");
+        const infoDiv = root.querySelector(".auth-info");
         infoDiv.insertAdjacentHTML(
           "beforeend",
           "Error while creating account!",
@@ -465,7 +464,7 @@ function addRecipeCallback() {
           renderMain();
         }
         console.log("Status", status);
-        const infoDiv = root.querySelectorAll(".add-info");
+        const infoDiv = root.querySelector(".add-info");
         infoDiv.insertAdjacentHTML(
           "beforeend",
           "Error adding the recipe, check your input!",
