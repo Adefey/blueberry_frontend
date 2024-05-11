@@ -350,13 +350,17 @@ function loginCallback(userlogin, userpassword, textInfo) {
         renderMain();
       } else {
         console.log("Login fail");
-        textInfo.innerHTML = "Login data is incorrect!";
+        const infoDiv = root.querySelectorAll(".auth-info");
+        infoDiv.insertAdjacentHTML(
+          "beforeend",
+          "Error while logging in. Login or password are incorrect!",
+        );
       }
     });
   };
 }
 
-function registerCallback(userlogin, userpassword, textInfo) {
+function registerCallback(userlogin, userpassword) {
   return (e) => {
     register(userlogin.value, userpassword.value).then((status) => {
       if (status === 200) {
@@ -364,7 +368,11 @@ function registerCallback(userlogin, userpassword, textInfo) {
         renderMain();
       } else {
         console.log("Register fail");
-        textInfo.innerHTML = "Register data is incorrect or login is taken!";
+        const infoDiv = root.querySelectorAll(".auth-info");
+        infoDiv.insertAdjacentHTML(
+          "beforeend",
+          "Error while creating account!",
+        );
       }
     });
   };
@@ -457,6 +465,11 @@ function addRecipeCallback() {
           renderMain();
         }
         console.log("Status", status);
+        const infoDiv = root.querySelectorAll(".add-info");
+        infoDiv.insertAdjacentHTML(
+          "beforeend",
+          "Error adding the recipe, check your input!",
+        );
       })
       .catch((error) => {
         console.log("Error adding recipe", error);
