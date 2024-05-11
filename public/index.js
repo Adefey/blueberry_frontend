@@ -399,7 +399,7 @@ function addRecipeCallback() {
     const recipeName = root.querySelector(".recipe-name").value;
     const recipeDescription = root.querySelector(".recipe-description").value;
     const recipeImageUrl = root.querySelector(".recipe-image-url").value;
-    log.info(
+    console.log(
       "Collected general data",
       recipeName,
       recipeDescription,
@@ -419,7 +419,7 @@ function addRecipeCallback() {
       .map((element) => {
         return element.value;
       });
-    log.info("Collected step data", stepNames, stepDescriptions, stepImageUrls);
+    console.log("Collected step data", stepNames, stepDescriptions, stepImageUrls);
   };
 }
 
