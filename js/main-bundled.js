@@ -1433,18 +1433,21 @@
             r = t.querySelector(".recipe-description").value,
             o = t.querySelector(".recipe-image-url").value;
           console.log("Collected general data", n, r, o);
-          const a = Array.from(t.querySelectorAll(".step-name"));
-          a = a.map((e) => {
-            e = e.value;
-          });
-          const l = Array.from(t.querySelectorAll(".step-description"));
-          l = l.map((e) => {
-            e = e.value;
-          });
-          const i = Array.from(t.querySelectorAll(".step-image-url"));
-          (i = i.map((e) => {
-            e = e.value;
-          })),
+          let a = Array.from(t.querySelectorAll(".step-name"));
+          a &&
+            (a = a.map((e) => {
+              e = e.value;
+            }));
+          let l = Array.from(t.querySelectorAll(".step-description"));
+          l &&
+            (l = l.map((e) => {
+              e = e.value;
+            }));
+          let i = Array.from(t.querySelectorAll(".step-image-url"));
+          i &&
+            (i = i.map((e) => {
+              e = e.value;
+            })),
             console.log("Collected step data", a, l, i);
         });
     }

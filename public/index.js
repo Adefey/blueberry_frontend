@@ -406,22 +406,28 @@ function addRecipeCallback() {
       recipeImageUrl,
     );
 
-    const stepNames = Array.from(root.querySelectorAll(".step-name"));
-    stepNames = stepNames.map((element) => {
-      element = element.value;
-    });
+    let stepNames = Array.from(root.querySelectorAll(".step-name"));
+    if (stepNames) {
+      stepNames = stepNames.map((element) => {
+        element = element.value;
+      });
+    }
 
-    const stepDescriptions = Array.from(
+    let stepDescriptions = Array.from(
       root.querySelectorAll(".step-description"),
     );
-    stepDescriptions = stepDescriptions.map((element) => {
-      element = element.value;
-    });
+    if (stepDescriptions) {
+      stepDescriptions = stepDescriptions.map((element) => {
+        element = element.value;
+      });
+    }
 
-    const stepImageUrls = Array.from(root.querySelectorAll(".step-image-url"));
-    stepImageUrls = stepImageUrls.map((element) => {
-      element = element.value;
-    });
+    let stepImageUrls = Array.from(root.querySelectorAll(".step-image-url"));
+    if (stepImageUrls) {
+      stepImageUrls = stepImageUrls.map((element) => {
+        element = element.value;
+      });
+    }
 
     console.log(
       "Collected step data",
