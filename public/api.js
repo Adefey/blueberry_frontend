@@ -98,4 +98,51 @@ async function register(login, password) {
   }
 }
 
-export { recipeAll, recipeId, login, register };
+async function addRecipe(
+  name,
+  description,
+  image_url,
+  stepNames,
+  stepDescriptions,
+  stepDurations,
+  stepImageUrls,
+) {
+  const handleUrl = `/recipe`;
+  console.log(handleUrl);
+
+  const stepsArray = stepNames.map((_, index) => {
+    return {
+      caption: stepNames[index],
+      description: stepDescriptions[index],
+      image_url: stepImageUrls[index],
+      duration: stepDurations[index],
+    };
+  });
+  console.log("Steps", stepsArray);
+
+  try {
+    let response = await fetch(backendUrl + handleUrl, {
+      method: "post",
+      mode: "cors",
+      credentials: "include",
+      body: JSON.stringify({
+        caption: name,
+        description: description,
+        image_url: image_url,
+        steps: stepsArray,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    let status = response.status;
+    console.log("Data received, status", status);
+    return status;
+  } catch (error) {
+    console.error("Error loading data for", handleUrl, "Error:", error);
+    return null;
+  }
+}
+
+export { recipeAll, recipeId, login, register, addRecipe };

@@ -1,4 +1,4 @@
-import { recipeAll, recipeId, login, register } from "./api.js";
+import { recipeAll, recipeId, login, register, addRecipe } from "./api.js";
 import { setToTimeString } from "./sec_to_date.js";
 
 if ("serviceWorker" in navigator) {
@@ -422,6 +422,13 @@ function addRecipeCallback() {
       });
     }
 
+    let stepDurations = Array.from(root.querySelectorAll(".step-duration"));
+    if (stepDurations) {
+      stepDurations = stepDurations.map((element) => {
+        return element.value;
+      });
+    }
+
     let stepImageUrls = Array.from(root.querySelectorAll(".step-image-url"));
     if (stepImageUrls) {
       stepImageUrls = stepImageUrls.map((element) => {
@@ -433,8 +440,25 @@ function addRecipeCallback() {
       "Collected step data",
       stepNames,
       stepDescriptions,
+      stepDurations,
       stepImageUrls,
     );
+    addRecipe(
+      recipeName,
+      recipeDescription,
+      recipeImageUrl,
+      stepNames,
+      stepDescriptions,
+      stepDurations,
+      stepImageUrls,
+    )
+      .then((status) => {
+        console.log("Status", status);
+        renderMain();
+      })
+      .catch((error) => {
+        console.log("Error adding recipe", error);
+      });
   };
 }
 
