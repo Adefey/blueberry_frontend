@@ -453,8 +453,10 @@ function addRecipeCallback() {
       stepImageUrls,
     )
       .then((status) => {
+        if (status === 200) {
+          renderMain();
+        }
         console.log("Status", status);
-        renderMain();
       })
       .catch((error) => {
         console.log("Error adding recipe", error);
