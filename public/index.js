@@ -406,19 +406,21 @@ function addRecipeCallback() {
       recipeImageUrl,
     );
 
-    const stepNames = root.querySelectorAll(".step-name").forEach((element) => {
+    const stepNames = root.querySelectorAll(".step-name");
+    stepNames.forEach((element) => {
       element = element.value;
     });
-    const stepDescriptions = root
-      .querySelectorAll(".step-description")
-      .forEach((element) => {
-        element = element.value;
-      });
-    const stepImageUrls = root
-      .querySelectorAll(".step-image-url")
-      .forEach((element) => {
-        element = element.value;
-      });
+
+    const stepDescriptions = root.querySelectorAll(".step-description");
+    stepDescriptions.forEach((element) => {
+      element = element.value;
+    });
+
+    const stepImageUrls = root.querySelectorAll(".step-image-url");
+    stepImageUrls.forEach((element) => {
+      element = element.value;
+    });
+
     console.log(
       "Collected step data",
       stepNames,

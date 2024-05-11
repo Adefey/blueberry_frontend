@@ -56,7 +56,7 @@
         e.exports = (r.default || r).template({
           compiler: [8, ">= 4.3.0"],
           main: function (e, t, n, r, o) {
-            return '<div class="flex-column">\n  <div class="text-info">Write a name, description and provire a picture for the\n    step</div>\n<div class="flex-row">\n  <input type="text" class="step-name" placeholder="Name..." />\n  <input type="text" class="step-description" placeholder="Description..." />\n  <input type="text" class="step-image-url" placeholder="Image url..." />\n</div>\n</div>';
+            return '<div class="flex-column">\n  <div class="text-info">Write a name, description and provire a picture for the\n    step</div>\n  <div class="flex-row">\n    <input type="text" class="step-name" placeholder="Name..." />\n    <input type="text" class="step-description" placeholder="Description..." />\n    <input type="text" class="step-image-url" placeholder="Image url..." />\n  </div>\n</div>';
           },
           useData: !0,
         });
@@ -1433,16 +1433,19 @@
             r = t.querySelector(".recipe-description").value,
             o = t.querySelector(".recipe-image-url").value;
           console.log("Collected general data", n, r, o);
-          const a = t.querySelectorAll(".step-name").forEach((e) => {
-              e = e.value;
-            }),
-            l = t.querySelectorAll(".step-description").forEach((e) => {
-              e = e.value;
-            }),
-            i = t.querySelectorAll(".step-image-url").forEach((e) => {
-              e = e.value;
-            });
-          console.log("Collected step data", a, l, i);
+          const a = t.querySelectorAll(".step-name");
+          a.forEach((e) => {
+            e = e.value;
+          });
+          const l = t.querySelectorAll(".step-description");
+          l.forEach((e) => {
+            e = e.value;
+          });
+          const i = t.querySelectorAll(".step-image-url");
+          i.forEach((e) => {
+            e = e.value;
+          }),
+            console.log("Collected step data", a, l, i);
         });
     }
     function v() {
