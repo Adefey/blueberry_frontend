@@ -235,7 +235,7 @@ function updatePaginationButtons() {
     prevButton.disabled = true;
   }
   const nextButton = root.querySelector(".button-next-list");
-  if (state.currentPage === state.totalPages - 1) {
+  if (state.currentPage >= state.totalPages - 1) {
     nextButton.disabled = true;
   }
 }

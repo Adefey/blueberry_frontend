@@ -1652,7 +1652,7 @@
           const e = t.querySelector(".button-prev-list");
           0 === d.currentPage && (e.disabled = !0);
           const n = t.querySelector(".button-next-list");
-          d.currentPage === d.totalPages - 1 && (n.disabled = !0);
+          d.currentPage >= d.totalPages - 1 && (n.disabled = !0);
         })();
     }
     function _(e, n) {
