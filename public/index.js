@@ -386,7 +386,7 @@ function checkCookieLogin() {
 
 function addStepCallback() {
   return (e) => {
-    stepContainer = root.querySelector(".recipe-step-storage");
+    const stepContainer = root.querySelector(".recipe-step-storage");
     stepContainer.insertAdjacentHTML("beforeend", addRecipeStepTmpl());
   };
 }

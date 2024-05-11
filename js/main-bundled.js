@@ -66,59 +66,7 @@
         e.exports = (r.default || r).template({
           compiler: [8, ">= 4.3.0"],
           main: function (e, t, n, r, o) {
-            var a,
-              l = null != t ? t : e.nullContext || {},
-              i = e.hooks.helperMissing,
-              s = "function",
-              c = e.escapeExpression,
-              u =
-                e.lookupProperty ||
-                function (e, t) {
-                  if (Object.prototype.hasOwnProperty.call(e, t)) return e[t];
-                };
-            return (
-              '<div class="add-recipe flex-column">\n  <div class="accent-text">Add a new recipe</div>\n  <div class="text-info">Write a name and a description for your recipe, also\n    you may attach a picture</div>\n  <input type="text" class="" placeholder="Name..." />\n  <input type="text" class="" placeholder="Description..." />\n  <input type="text" class="" placeholder="Url..." />\n  <div class="text-info">Write info for each step</div>\n  <div class="recipe-step-storage"></div>\n  <button type="button" class="button-add-step">' +
-              c(
-                typeof (a =
-                  null !=
-                  (a =
-                    u(n, "action_button_text") ||
-                    (null != t ? u(t, "action_button_text") : t))
-                    ? a
-                    : i) === s
-                  ? a.call(l, {
-                      name: "action_button_text",
-                      hash: {},
-                      data: o,
-                      loc: {
-                        start: { line: 10, column: 48 },
-                        end: { line: 10, column: 70 },
-                      },
-                    })
-                  : a,
-              ) +
-              '</button>\n  <button\n    type="button"\n    class="button-add-recipe"\n  >' +
-              c(
-                typeof (a =
-                  null !=
-                  (a =
-                    u(n, "action_button_text") ||
-                    (null != t ? u(t, "action_button_text") : t))
-                    ? a
-                    : i) === s
-                  ? a.call(l, {
-                      name: "action_button_text",
-                      hash: {},
-                      data: o,
-                      loc: {
-                        start: { line: 14, column: 3 },
-                        end: { line: 14, column: 25 },
-                      },
-                    })
-                  : a,
-              ) +
-              "</button>\n</div>"
-            );
+            return '<div class="add-recipe flex-column">\n  <div class="accent-text">Add a new recipe</div>\n  <div class="text-info">Write a name and a description for your recipe, also\n    you may attach a picture</div>\n  <input type="text" class="" placeholder="Name..." />\n  <input type="text" class="" placeholder="Description..." />\n  <input type="text" class="" placeholder="Url..." />\n  <div class="text-info">Write info for each step</div>\n  <div class="recipe-step-storage"></div>\n  <button type="button" class="button-add-step">add step</button>\n  <button type="button" class="button-add-recipe">add this recipe</button>\n</div>';
           },
           useData: !0,
         });
@@ -1475,8 +1423,10 @@
       (t.innerHTML = ""),
         t.insertAdjacentHTML("beforeend", s()),
         t.querySelector(".button-add-step").addEventListener("click", (e) => {
-          (stepContainer = t.querySelector(".recipe-step-storage")),
-            stepContainer.insertAdjacentHTML("beforeend", c());
+          t.querySelector(".recipe-step-storage").insertAdjacentHTML(
+            "beforeend",
+            c(),
+          );
         });
     }
     function v() {
