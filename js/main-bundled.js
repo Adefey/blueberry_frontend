@@ -649,11 +649,11 @@
                   i in e && d(i, i, i === e.length - 1);
               else if ("function" == typeof Symbol && e[Symbol.iterator]) {
                 for (
-                  var f = [], h = e[Symbol.iterator](), v = h.next();
-                  !v.done;
-                  v = h.next()
+                  var f = [], h = e[Symbol.iterator](), g = h.next();
+                  !g.done;
+                  g = h.next()
                 )
-                  f.push(v.value);
+                  f.push(g.value);
                 for (p = (e = f).length; i < p; i++)
                   d(i, i, i === e.length - 1);
               } else
@@ -1335,7 +1335,20 @@
       };
     function u() {
       (t.innerHTML = ""),
-        console.log("cookies:", document.cookie),
+        (function () {
+          console.log("cookies:", document.cookie);
+          let e = {};
+          document.cookie.split(";").forEach((t) => {
+            let [n, r] = t.split("=");
+            e[n.trim()] = r;
+          }),
+            console.log("Parsed cookie", e),
+            e["blueberry-user"]
+              ? (log.info("Keep logged in"),
+                (c.loggedId = True),
+                (c.username = document.cookie["blueberry-user"]))
+              : console.info("Not logged in");
+        })(),
         t.insertAdjacentHTML("beforeend", r({ username: c.username })),
         t.querySelector(".button-login").addEventListener("click", p),
         t.querySelector(".button-register").addEventListener("click", f),
@@ -1371,10 +1384,10 @@
           ),
             t
               .querySelector(".button-prev-list")
-              .addEventListener("click", v(c.currentPage, -1)),
+              .addEventListener("click", g(c.currentPage, -1)),
             t
               .querySelector(".button-next-list")
-              .addEventListener("click", v(c.currentPage, 1));
+              .addEventListener("click", g(c.currentPage, 1));
         })(),
         h();
     }
@@ -1422,7 +1435,7 @@
               }
             })(t.value, n.value).then((e) => {
               200 === e
-                ? ((c.loggedId = !0), (c.username = t.value), u())
+                ? (console.log("Login success"), u())
                 : (console.log("Login fail"),
                   (r.innerHTML = "Login data is incorrect!"));
             });
@@ -1468,10 +1481,7 @@
               }
             })(t.value, n.value).then((e) => {
               200 === e
-                ? ((c.loggedId = !0),
-                  (c.username = t.value),
-                  document.cookie,
-                  u())
+                ? (console.log("Register success"), u())
                 : (console.log("Register fail"),
                   (r.innerHTML =
                     "Register data is incorrect or login is taken!"));
@@ -1498,19 +1508,19 @@
           return console.error("Error loading data for", o, "Error:", e), null;
         }
       })(s.RECIPES_PER_PAGE, c.currentPage * s.RECIPES_PER_PAGE, c.searchQuery)
-        .then(g)
+        .then(v)
         .catch((e) => {
           console.error(`Something went wrong fetching recipes, ${e}`);
         });
     }
-    function v(e, t) {
+    function g(e, t) {
       return (n) => {
         console.log(`Running pagination, currentPage: ${e} stride ${t}`),
           e + t >= 0 && e + t < c.totalPages && (e += t),
           h();
       };
     }
-    function g(n) {
+    function v(n) {
       console.log(`Running recipe list received callback, total: ${n.total}`),
         (c.totalPages = Math.ceil(n.total / s.RECIPES_PER_PAGE)),
         t.insertAdjacentHTML("beforeend", a(n)),

@@ -341,8 +341,7 @@ function loginCallback(userlogin, userpassword, textInfo) {
   return (e) => {
     login(userlogin.value, userpassword.value).then((status) => {
       if (status === 200) {
-        state.loggedId = true;
-        state.username = userlogin.value;
+        console.log("Login success");
         renderMain();
       } else {
         console.log("Login fail");
@@ -356,9 +355,7 @@ function registerCallback(userlogin, userpassword, textInfo) {
   return (e) => {
     register(userlogin.value, userpassword.value).then((status) => {
       if (status === 200) {
-        state.loggedId = true;
-        state.username = userlogin.value;
-        document.cookie;
+        console.log("Register success");
         renderMain();
       } else {
         console.log("Register fail");
@@ -370,10 +367,19 @@ function registerCallback(userlogin, userpassword, textInfo) {
 
 function checkCookieLogin() {
   console.log("cookies:", document.cookie);
-  // if (document.cookie["blueberry-user"]){
-  //   state.loggedId = True;
-  //   state.username = document.cookie["blueberry-user"];
-  // }
+  let parsedCookie = {};
+  document.cookie.split(";").forEach((el) => {
+    let [k, v] = el.split("=");
+    parsedCookie[k.trim()] = v;
+  });
+  console.log("Parsed cookie", parsedCookie);
+  if (parsedCookie["blueberry-user"]) {
+    log.info("Keep logged in");
+    state.loggedId = True;
+    state.username = document.cookie["blueberry-user"];
+  } else {
+    console.info("Not logged in");
+  }
 }
 
 //Entry point
