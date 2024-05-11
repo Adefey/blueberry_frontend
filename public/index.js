@@ -406,18 +406,20 @@ function addRecipeCallback() {
       recipeImageUrl,
     );
 
-    const stepNames = root.querySelectorAll(".step-name");
-    stepNames.forEach((element) => {
+    const stepNames = Array.from(root.querySelectorAll(".step-name"));
+    stepNames = stepNames.map((element) => {
       element = element.value;
     });
 
-    const stepDescriptions = root.querySelectorAll(".step-description");
-    stepDescriptions.forEach((element) => {
+    const stepDescriptions = Array.from(
+      root.querySelectorAll(".step-description"),
+    );
+    stepDescriptions = stepDescriptions.map((element) => {
       element = element.value;
     });
 
-    const stepImageUrls = root.querySelectorAll(".step-image-url");
-    stepImageUrls.forEach((element) => {
+    const stepImageUrls = Array.from(root.querySelectorAll(".step-image-url"));
+    stepImageUrls = stepImageUrls.map((element) => {
       element = element.value;
     });
 

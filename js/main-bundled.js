@@ -1373,7 +1373,7 @@
         })(),
         t.insertAdjacentHTML("beforeend", r({ username: d.username })),
         t.querySelector(".button-login").addEventListener("click", v),
-        t.querySelector(".button-register").addEventListener("click", g),
+        t.querySelector(".button-register").addEventListener("click", m),
         t.querySelector(".button-add").addEventListener("click", h),
         (function () {
           const e = t.querySelector(".button-login"),
@@ -1411,7 +1411,7 @@
               .querySelector(".button-next-list")
               .addEventListener("click", b(d.currentPage, 1));
         })(),
-        m();
+        g();
     }
     function f(e) {
       (t.innerHTML = ""),
@@ -1433,18 +1433,18 @@
             r = t.querySelector(".recipe-description").value,
             o = t.querySelector(".recipe-image-url").value;
           console.log("Collected general data", n, r, o);
-          const a = t.querySelectorAll(".step-name");
-          a.forEach((e) => {
+          const a = Array.from(t.querySelectorAll(".step-name"));
+          a = a.map((e) => {
             e = e.value;
           });
-          const l = t.querySelectorAll(".step-description");
-          l.forEach((e) => {
+          const l = Array.from(t.querySelectorAll(".step-description"));
+          l = l.map((e) => {
             e = e.value;
           });
-          const i = t.querySelectorAll(".step-image-url");
-          i.forEach((e) => {
+          const i = Array.from(t.querySelectorAll(".step-image-url"));
+          (i = i.map((e) => {
             e = e.value;
-          }),
+          })),
             console.log("Collected step data", a, l, i);
         });
     }
@@ -1494,7 +1494,7 @@
         })(n, r, o),
       );
     }
-    function g() {
+    function m() {
       (t.innerHTML = ""),
         t.insertAdjacentHTML(
           "beforeend",
@@ -1541,7 +1541,7 @@
         })(n, r, o),
       );
     }
-    function m() {
+    function g() {
       (async function (t = 20, n = 0, r = null) {
         if (0 === t) return { recipes: [] };
         let o = `/recipe/all?count=${t}&offset=${n}`;
@@ -1568,7 +1568,7 @@
       return (n) => {
         console.log(`Running pagination, currentPage: ${e} stride ${t}`),
           e + t >= 0 && e + t < d.totalPages && (e += t),
-          m();
+          g();
       };
     }
     function y(n) {
