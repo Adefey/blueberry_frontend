@@ -409,7 +409,7 @@ function addRecipeCallback() {
     let stepNames = Array.from(root.querySelectorAll(".step-name"));
     if (stepNames) {
       stepNames = stepNames.map((element) => {
-        element = element.value;
+        element.value;
       });
     }
 
@@ -418,14 +418,14 @@ function addRecipeCallback() {
     );
     if (stepDescriptions) {
       stepDescriptions = stepDescriptions.map((element) => {
-        element = element.value;
+        element.value;
       });
     }
 
     let stepImageUrls = Array.from(root.querySelectorAll(".step-image-url"));
     if (stepImageUrls) {
       stepImageUrls = stepImageUrls.map((element) => {
-        element = element.value;
+        element.value;
       });
     }
 

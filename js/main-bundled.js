@@ -1436,17 +1436,17 @@
           let a = Array.from(t.querySelectorAll(".step-name"));
           a &&
             (a = a.map((e) => {
-              e = e.value;
+              e.value;
             }));
           let l = Array.from(t.querySelectorAll(".step-description"));
           l &&
             (l = l.map((e) => {
-              e = e.value;
+              e.value;
             }));
           let i = Array.from(t.querySelectorAll(".step-image-url"));
           i &&
             (i = i.map((e) => {
-              e = e.value;
+              e.value;
             })),
             console.log("Collected step data", a, l, i);
         });
