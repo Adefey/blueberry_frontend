@@ -374,11 +374,11 @@ function checkCookieLogin() {
   });
   console.log("Parsed cookie", parsedCookie);
   if (parsedCookie["blueberry-user"]) {
-    log.info("Keep logged in");
+    console.log("Keep logged in, user:", parsedCookie["blueberry-user"]);
     state.loggedId = True;
     state.username = document.cookie["blueberry-user"];
   } else {
-    console.info("Not logged in");
+    console.log("Not logged in");
   }
 }
 

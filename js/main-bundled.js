@@ -1344,10 +1344,10 @@
           }),
             console.log("Parsed cookie", e),
             e["blueberry-user"]
-              ? (log.info("Keep logged in"),
+              ? (console.log("Keep logged in, user:", e["blueberry-user"]),
                 (c.loggedId = True),
                 (c.username = document.cookie["blueberry-user"]))
-              : console.info("Not logged in");
+              : console.log("Not logged in");
         })(),
         t.insertAdjacentHTML("beforeend", r({ username: c.username })),
         t.querySelector(".button-login").addEventListener("click", p),
