@@ -56,7 +56,7 @@
         e.exports = (r.default || r).template({
           compiler: [8, ">= 4.3.0"],
           main: function (e, t, n, r, o) {
-            return '<div class="text-info">Write a name, description and provire a picture for the\n  step</div>\n<input type="text" class="" placeholder="Name..." />\n<input type="text" class="" placeholder="Description..." />\n<input type="text" class="" placeholder="Url..." />';
+            return '<div class="flex-row">\n  <div class="text-info">Write a name, description and provire a picture for the\n    step</div>\n  <input type="text" class="step-name" placeholder="Name..." />\n  <input type="text" class="step-description" placeholder="Description..." />\n  <input type="text" class="step-image-url" placeholder="Image url..." />\n</div>';
           },
           useData: !0,
         });
@@ -66,7 +66,7 @@
         e.exports = (r.default || r).template({
           compiler: [8, ">= 4.3.0"],
           main: function (e, t, n, r, o) {
-            return '<div class="add-recipe flex-column">\n  <div class="accent-text">Add a new recipe</div>\n  <div class="text-info">Write a name and a description for your recipe, also\n    you may attach a picture</div>\n  <input type="text" class="" placeholder="Name..." />\n  <input type="text" class="" placeholder="Description..." />\n  <input type="text" class="" placeholder="Url..." />\n  <div class="text-info">Write info for each step</div>\n  <div class="recipe-step-storage"></div>\n  <button type="button" class="button-add-step">add step</button>\n  <button type="button" class="button-add-recipe">add this recipe</button>\n</div>';
+            return '<div class="add-recipe flex-column">\n  <div class="accent-text">Add a new recipe</div>\n  <div class="text-info">Write a name and a description for your recipe, also\n    you may attach a picture</div>\n  <input type="text" class="recipe-name" placeholder="Name..." />\n  <input type="text" class="recipe-description" placeholder="Description..." />\n  <input type="text" class="recipe-image-url" placeholder="Image url..." />\n  <div class="text-info">Write info for each step</div>\n  <div class="recipe-step-storage"></div>\n  <button type="button" class="button-add-step">add step</button>\n  <button type="button" class="button-add-recipe">add this recipe</button>\n</div>';
           },
           useData: !0,
         });
@@ -1427,6 +1427,16 @@
             "beforeend",
             c(),
           );
+        }),
+        t.querySelector(".button-add-recipe").addEventListener("click", (e) => {
+          const n = t.querySelector(".recipe-name").value,
+            r = t.querySelector(".recipe-description").value,
+            o = t.querySelector(".recipe-image-url").value;
+          log.info("Collected general data", n, r, o);
+          const a = t.querySelectorAll(".step-name").map((e) => e.value),
+            l = t.querySelectorAll(".step-description").map((e) => e.value),
+            i = t.querySelectorAll(".step-image-url").map((e) => e.value);
+          log.info("Collected step data", a, l, i);
         });
     }
     function v() {

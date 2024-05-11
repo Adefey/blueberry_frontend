@@ -67,6 +67,9 @@ function renderAddRecipe() {
 
   const addStepButton = root.querySelector(".button-add-step");
   addStepButton.addEventListener("click", addStepCallback());
+
+  const addRecipeButton = root.querySelector(".button-add-recipe");
+  addRecipeButton.addEventListener("click", addRecipeCallback());
 }
 
 function renderLoginForm() {
@@ -388,6 +391,35 @@ function addStepCallback() {
   return (e) => {
     const stepContainer = root.querySelector(".recipe-step-storage");
     stepContainer.insertAdjacentHTML("beforeend", addRecipeStepTmpl());
+  };
+}
+
+function addRecipeCallback() {
+  return (e) => {
+    const recipeName = root.querySelector(".recipe-name").value;
+    const recipeDescription = root.querySelector(".recipe-description").value;
+    const recipeImageUrl = root.querySelector(".recipe-image-url").value;
+    log.info(
+      "Collected general data",
+      recipeName,
+      recipeDescription,
+      recipeImageUrl,
+    );
+
+    const stepNames = root.querySelectorAll(".step-name").map((element) => {
+      return element.value;
+    });
+    const stepDescriptions = root
+      .querySelectorAll(".step-description")
+      .map((element) => {
+        return element.value;
+      });
+    const stepImageUrls = root
+      .querySelectorAll(".step-image-url")
+      .map((element) => {
+        return element.value;
+      });
+    log.info("Collected step data", stepNames, stepDescriptions, stepImageUrls);
   };
 }
 
