@@ -24,6 +24,7 @@ const recipeListTmlp = require("../templates/recipe-list.hbs");
 const recipeTmpl = require("../templates/recipe.hbs");
 const credentialsFormTmpl = require("../templates/credentials-container.hbs");
 const addRecipeTmpl = require("../templates/add-recipe.hbs");
+const addRecipeStepTmpl = require("../templates/add-recipe-step.hbs");
 
 // App config
 
@@ -63,6 +64,9 @@ function renderRecipe(recipeData) {
 function renderAddRecipe() {
   root.innerHTML = "";
   root.insertAdjacentHTML("beforeend", addRecipeTmpl());
+
+  const addStepButton = root.querySelector(".button-add-step");
+  addStepButton.addEventListener("click", addStepCallback());
 }
 
 function renderLoginForm() {
@@ -317,7 +321,9 @@ function exitButtonCallback(timer) {
 }
 
 function addButtonCallback() {
-  return (e) => {};
+  return (e) => {
+    renderAddRecipe();
+  };
 }
 
 function updateActionBar() {
@@ -382,6 +388,13 @@ function checkCookieLogin() {
   } else {
     console.log("Not logged in");
   }
+}
+
+function addStepCallback() {
+  return (e) => {
+    stepContainer = root.querySelector(".recipe-step-storage");
+    stepContainer.insertAdjacentHTML("beforeend", addRecipeStepTmpl());
+  };
 }
 
 //Entry point
