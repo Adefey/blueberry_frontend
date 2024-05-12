@@ -152,17 +152,11 @@ function renderSearch() {
 
   // Prev button
   const prevButton = root.querySelector(".button-prev-list");
-  prevButton.addEventListener(
-    "click",
-    paginationButtonCallback(state.currentPage, -1),
-  );
+  prevButton.addEventListener("click", paginationButtonCallback(-1));
 
   // Next button
   const nextButton = root.querySelector(".button-next-list");
-  nextButton.addEventListener(
-    "click",
-    paginationButtonCallback(state.currentPage, +1),
-  );
+  nextButton.addEventListener("click", paginationButtonCallback(+1));
 }
 
 function renderList() {
@@ -188,16 +182,19 @@ function searchCallback(searchbar) {
   };
 }
 
-function paginationButtonCallback(currentPage, stride) {
+function paginationButtonCallback(stride) {
   return (e) => {
     console.log(
-      `Running pagination, currentPage: ${currentPage} stride ${stride}`,
+      `Running pagination, currentPage: ${state.currentPage} stride ${stride}`,
     );
-    if (currentPage + stride >= 0 && currentPage + stride < state.totalPages) {
-      currentPage += stride;
+    if (
+      state.currentPage + stride >= 0 &&
+      state.currentPage + stride < state.totalPages
+    ) {
+      state.currentPage += stride;
     }
 
-    renderList();
+    renderMain();
   };
 }
 

@@ -1403,17 +1403,43 @@
           ),
             t
               .querySelector(".button-prev-list")
-              .addEventListener("click", b(d.currentPage, -1)),
+              .addEventListener("click", m(-1)),
             t
               .querySelector(".button-next-list")
-              .addEventListener("click", b(d.currentPage, 1));
+              .addEventListener("click", m(1));
         })(),
-        m();
+        (async function (t = 20, n = 0, r = null) {
+          if (0 === t) return { recipes: [] };
+          let o = `/recipe/all?count=${t}&offset=${n}`;
+          r && "" != r && (o += `&search_query=${r}`), console.log(o, t, n, r);
+          try {
+            let t = await fetch(e + o, {
+                method: "get",
+                mode: "cors",
+                credentials: "include",
+                headers: { "Content-Type": "application/json" },
+              }),
+              n = await t.json();
+            return console.log("Data received", n), n;
+          } catch (e) {
+            return (
+              console.error("Error loading data for", o, "Error:", e), null
+            );
+          }
+        })(
+          u.RECIPES_PER_PAGE,
+          d.currentPage * u.RECIPES_PER_PAGE,
+          d.searchQuery,
+        )
+          .then(b)
+          .catch((e) => {
+            console.error(`Something went wrong fetching recipes, ${e}`);
+          });
     }
     function f(e) {
       if (((t.innerHTML = ""), 0 === e.steps.length))
         return console.error("Cannot render recipe with zero steps"), void p();
-      _(e.steps, 0);
+      y(e.steps, 0);
     }
     function h() {
       (t.innerHTML = ""),
@@ -1578,37 +1604,18 @@
           }),
         );
     }
-    function m() {
-      (async function (t = 20, n = 0, r = null) {
-        if (0 === t) return { recipes: [] };
-        let o = `/recipe/all?count=${t}&offset=${n}`;
-        r && "" != r && (o += `&search_query=${r}`), console.log(o, t, n, r);
-        try {
-          let t = await fetch(e + o, {
-              method: "get",
-              mode: "cors",
-              credentials: "include",
-              headers: { "Content-Type": "application/json" },
-            }),
-            n = await t.json();
-          return console.log("Data received", n), n;
-        } catch (e) {
-          return console.error("Error loading data for", o, "Error:", e), null;
-        }
-      })(u.RECIPES_PER_PAGE, d.currentPage * u.RECIPES_PER_PAGE, d.searchQuery)
-        .then(y)
-        .catch((e) => {
-          console.error(`Something went wrong fetching recipes, ${e}`);
-        });
-    }
-    function b(e, t) {
-      return (n) => {
-        console.log(`Running pagination, currentPage: ${e} stride ${t}`),
-          e + t >= 0 && e + t < d.totalPages && (e += t),
-          m();
+    function m(e) {
+      return (t) => {
+        console.log(
+          `Running pagination, currentPage: ${d.currentPage} stride ${e}`,
+        ),
+          d.currentPage + e >= 0 &&
+            d.currentPage + e < d.totalPages &&
+            (d.currentPage += e),
+          p();
       };
     }
-    function y(n) {
+    function b(n) {
       console.log(`Running recipe list received callback, total: ${n.total}`),
         (d.totalPages = Math.ceil(n.total / u.RECIPES_PER_PAGE)),
         t.insertAdjacentHTML("beforeend", a(n)),
@@ -1655,7 +1662,7 @@
           d.currentPage >= d.totalPages - 1 && (n.disabled = !0);
         })();
     }
-    function _(e, n) {
+    function y(e, n) {
       console.log(`Running step ${n} rendering`),
         (t.innerHTML = ""),
         (t.innerHTML = l(e[n]));
@@ -1677,7 +1684,7 @@
                     `Timer: ${t}:${n}:${r}`
                   );
                 })(n)),
-                0 === n && r != e.length - 1 && _(e, r + 1),
+                0 === n && r != e.length - 1 && y(e, r + 1),
                 --n;
             };
           })(e, r, o, n),
@@ -1691,7 +1698,7 @@
       );
       const i = t.querySelector(".button-previous");
       0 === n && (i.disabled = !0),
-        i.addEventListener("click", x(-1, e, n, a)),
+        i.addEventListener("click", _(-1, e, n, a)),
         t.querySelector(".button-pause").addEventListener(
           "click",
           (function (e, t) {
@@ -1704,7 +1711,7 @@
         );
       const s = t.querySelector(".button-next");
       n === e.length - 1 && (s.disabled = !0),
-        s.addEventListener("click", x(1, e, n, a)),
+        s.addEventListener("click", _(1, e, n, a)),
         t.querySelector(".button-exit").addEventListener(
           "click",
           (function (e) {
@@ -1716,11 +1723,11 @@
           })(a),
         );
     }
-    function x(e, t, n, r) {
+    function _(e, t, n, r) {
       return (o) => {
         console.log(`Running step change button callback for step: ${n}`),
           clearInterval(r),
-          _(t, n + e);
+          y(t, n + e);
       };
     }
     p();
