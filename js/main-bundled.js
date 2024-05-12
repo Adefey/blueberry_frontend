@@ -56,7 +56,7 @@
         e.exports = (r.default || r).template({
           compiler: [8, ">= 4.3.0"],
           main: function (e, t, n, r, o) {
-            return '<div class="flex-column">\n  <div class="text-info">Write a name, description and provire a picture for the\n    step</div>\n  <div class="flex-row">\n    <input type="text" class="step-name" placeholder="Name... (string)" />\n    <input\n      type="text"\n      class="step-description"\n      placeholder="Description... (string)"\n    />\n    <input\n      type="text"\n      class="step-duration"\n      placeholder="Duration in seconds... (integer)"\n    />\n    <input\n      type="text"\n      class="step-image-url"\n      placeholder="Image url... (url)"\n    />\n  </div>\n</div>';
+            return '<div class="flex-column">\n  <div class="text-info">Write a name, description and provire a picture for the\n    step</div>\n  <div class="flex-row">\n    <input\n      type="text"\n      class="step-data step-name"\n      placeholder="Name... (string)"\n    />\n    <input\n      type="text"\n      class="step-data step-description"\n      placeholder="Description... (string)"\n    />\n    <input\n      type="text"\n      class="step-data step-duration"\n      placeholder="Duration in seconds... (integer)"\n    />\n    <input\n      type="text"\n      class="step-data step-image-url"\n      placeholder="Image url... (url)"\n    />\n  </div>\n</div>';
           },
           useData: !0,
         });
