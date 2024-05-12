@@ -128,7 +128,7 @@ button:disabled {
     justify-content: start;
   }
 
-  .step-data {
+  .step-data-input {
     width: 100%;
   }
 
@@ -185,7 +185,7 @@ button:disabled {
     justify-content: start;
   }
 
-  .step-data {
+  .step-data-input {
     width: 46%;
   }
 
