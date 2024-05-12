@@ -216,7 +216,7 @@
                     })
                   : a,
               ) +
-              '" />\n      </div>\n      <div class="text-container flex-column">\n        <div class="recipe-caption">' +
+              ' image" />\n      </div>\n      <div class="text-container flex-column">\n        <div class="recipe-caption">' +
               c(
                 typeof (a =
                   null !=
