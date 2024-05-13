@@ -1353,7 +1353,7 @@
         totalPages: 0,
         searchQuery: "",
         loggedId: !1,
-        username: "Anonymous User",
+        username: "Welcome!",
       };
     function p() {
       (t.innerHTML = ""),

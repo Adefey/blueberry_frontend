@@ -39,7 +39,7 @@ const state = {
   totalPages: 0,
   searchQuery: "",
   loggedId: false,
-  username: "Anonymous User",
+  username: "Welcome!",
 };
 
 // App main windows render
