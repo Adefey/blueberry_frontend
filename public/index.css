@@ -135,7 +135,7 @@ button:disabled {
   }
 
   .recipe-container {
-    margin: 10px;
+    margin: 10px 0px 10px 0px;
     transition-duration: 0.3s;
     display: flex;
     flex-direction: column;
@@ -168,7 +168,7 @@ button:disabled {
   }
 
   .adaptive-element-width {
-    width: 48%;
+    width: 46%;
   }
 
   .adaptive-element-height {
@@ -210,7 +210,7 @@ button:disabled {
   }
 
   .recipe-container {
-    margin: 10px;
+    margin: 10px 5px 10px 5px;
     transition-duration: 0.3s;
     display: flex;
     flex-direction: row;
@@ -256,7 +256,8 @@ button:disabled {
   overflow: clip;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  margin-bottom: 5px;
+  min-height: 1.2em;
+  padding-bottom: 5px;
 }
 
 .recipe-description {
