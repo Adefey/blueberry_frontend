@@ -49,8 +49,6 @@ footer {
 
 input {
   height: 40px;
-  min-width: 250px;
-  font-size: 18px;
   font-family: sans-serif;
   text-decoration: none;
   border: 2px solid #4f86f7;
@@ -61,7 +59,7 @@ input {
 
 button {
   border-radius: 5px;
-  min-width: 80px;
+  min-width: 40px;
   max-width: 200px;
   height: 40px;
   background-color: #4f86f7;
