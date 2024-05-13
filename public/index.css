@@ -83,7 +83,7 @@ button:disabled {
 
 /* Adaptive display rules */
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .adaptive-width {
     width: 95%;
   }
@@ -158,7 +158,7 @@ button:disabled {
   }
 }
 
-@media (min-width: 601px) {
+@media (min-width: 801px) {
   .adaptive-width {
     width: 70%;
   }
@@ -168,7 +168,7 @@ button:disabled {
   }
 
   .adaptive-element-width {
-    width: 46%;
+    width: 47%;
   }
 
   .adaptive-element-height {
