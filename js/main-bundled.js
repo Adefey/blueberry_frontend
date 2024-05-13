@@ -163,7 +163,7 @@
                   if (Object.prototype.hasOwnProperty.call(e, t)) return e[t];
                 };
             return (
-              '    <div\n      class="recipe-container adaptive-element-width adaptive-element-height flex-row shadow-border"\n      data-id="' +
+              '    <div\n      class="recipe-container adaptive-element-width adaptive-element-height shadow-border"\n      data-id="' +
               c(
                 typeof (a =
                   null != (a = u(n, "id") || (null != t ? u(t, "id") : t))

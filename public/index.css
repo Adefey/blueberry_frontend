@@ -134,6 +134,15 @@ button:disabled {
     margin: 0;
     font-size: 24px;
   }
+
+  .recipe-container {
+    margin: 10px;
+    transition-duration: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @media (min-width: 1080px) {
@@ -191,6 +200,16 @@ button:disabled {
     margin: 0;
     font-size: 18px;
   }
+
+  .recipe-container {
+    margin: 10px;
+    transition-duration: 0.3s;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 /* Specific classes display rules */
@@ -207,11 +226,6 @@ button:disabled {
 
 .text-center {
   text-align: center;
-}
-
-.recipe-container {
-  margin: 10px;
-  transition-duration: 0.3s;
 }
 
 .image-container {
