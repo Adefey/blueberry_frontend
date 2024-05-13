@@ -79,7 +79,7 @@ button:disabled {
 
 /* Adaptive display rules */
 
-@media (min-width: 480px) {
+@media (min-width: 300px) {
   .adaptive-width {
     width: 95%;
   }

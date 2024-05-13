@@ -329,7 +329,7 @@
                   },
                 ),
               ) +
-              '</div></div>\n    <button type="button" class="button-previous">Previous step</button>\n    <button type="button" class="button-pause">Disable timer</button>\n    <button type="button" class="button-next">Next step</button>\n    <button type="button" class="button-exit">Back to menu</button>\n  </div>\n</div>'
+              '</div></div>\n    <button type="button" class="button-pause">Disable timer</button>\n    <button type="button" class="button-previous">Previous step</button>\n    <button type="button" class="button-next">Next step</button>\n    <button type="button" class="button-exit">Back to menu</button>\n  </div>\n</div>'
             );
           },
           useData: !0,
